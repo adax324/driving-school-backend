@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/organize")
+@RequestMapping("/courses")
 public class OrganizeController {
-    @GetMapping("/calendar")
+    @GetMapping("/lessons/calendar")
     public String getCalendar(){
-        return "organization/calendar";
+        return "/courses/lessons/lessonsCalendar";
     }
 }
