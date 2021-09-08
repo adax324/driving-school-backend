@@ -51,13 +51,13 @@
                   <!-- the events -->
                   
                     <div class="row">
-                      <h3 class="bg-success w-100 text-center form-control">Zajęcia teoretyczne</h1>
+                      <h3 class="bg-success w-100 text-center form-control">Zajęcia teoretyczne</h3>
                     </div>
                     <div class="row">
-                      <h3 class="bg-warning w-100 text-center form-control">Zajęcia praktyczne</h1>
+                      <h3 class="bg-warning w-100 text-center form-control">Zajęcia praktyczne</h3>
                     </div>
                     <div class="row">
-                      <h3 class="bg-info w-100 text-center form-control">Zadanie domowe</h1>
+                      <h3 class="bg-info w-100 text-center form-control">Zadanie domowe</h3>
                     </div>
                     
                     
@@ -104,18 +104,19 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../plugins/jquery/jquery.min.js"></script>
+
+<script src='<c:url value="/resources/plugins/jquery/jquery.min.js"/>'></script>
 <!-- Bootstrap -->
-<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src='<c:url value="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
 <!-- jQuery UI -->
-<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src='<c:url value="/resources/plugins/jquery-ui/jquery-ui.min.js"/>'></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/adminlte.min.js"></script>
+<script src='<c:url value="/resources/dist/js/adminlte.min.js"/>'></script>
 <!-- fullCalendar 2.2.5 -->
-<script src="../plugins/moment/moment.min.js"></script>
-<script src="../plugins/fullcalendar/main.js"></script>
+<script src='<c:url value="/resources/plugins/moment/moment.min.js"/>'></script>
+<script src='<c:url value="/resources/plugins/fullcalendar/main.js"/>'></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
+<script src='<c:url value="/resources/dist/js/demo.js"/>'></script>
 <!-- Page specific script -->
 <script>
   $(function () {
