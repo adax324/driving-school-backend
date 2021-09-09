@@ -1,12 +1,21 @@
-package com.drivingschool.controller;
+package com.example.contoller;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    @GetMapping("/")
-    public String getHomepage(){
+
+
+    @GetMapping(value = { "/"})
+    public String index() {
         return "index";
     }
+
+
+
+
+
+
 }
