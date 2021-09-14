@@ -3,16 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Szkoła jazdy | Lista Kursantów</title>
+  <title>AdminLTE 3 | General Form Elements</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
@@ -385,8 +381,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Forms
@@ -395,7 +391,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../forms/general.html" class="nav-link">
+                <a href="../forms/general.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General Elements</p>
                 </a>
@@ -420,8 +416,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Tables
@@ -436,7 +432,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link active">
+                <a href="../tables/data.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>DataTables</p>
                 </a>
@@ -837,13 +833,13 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Zajęcia</h1>
+          <div class="col-sm-2">
+            <h1>Nowe Zadanie</h1>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-10">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Strona główna</a></li>
-              <li class="breadcrumb-item active">Zajęcia</li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">General Form</li>
             </ol>
           </div>
         </div>
@@ -854,52 +850,150 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
-            
-            <!-- /.card -->
-
-            <div class="card">
-              
-              <!-- /.card-header -->
-              
-              <div class="card-body">
-                <div class="row">
-                  <div class = " mb-2 col-sm-2 col-md-2">                    
-                    <a href="#" class="btn btn-success">+ Dodaj lekcję</a>
-                  </div>
-                </div>              
-               
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Student</th>
-                    <th>Instruktor</th>
-                    <th>Typ zajęć</th>
-                    <th>Termin</th>
-                    <th>Oddział</th>
-                    <th>Edycja</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                                  
-                  </tbody>
-                  <tfoot>
-                  
-                  </tfoot>
-                </table>
+          <!-- left column -->
+          <div class="col-xl-6 col-md-6 mb-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header py-3">
+                <h3 class="card-title">Dane:</h3>
               </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+       
+            <div class="card-body">
+            <div class="form-group row">
+                     <div class="col-12">
+                     <label>Kursant</label>
+                      <select class="form-control"></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-12">
+                  <label >Rodzaj zajęć</label>
+                  <select class="form-control">
+                    <option>Zajęcia teoretyczne</option>
+                    <option>Zajęcia praktyczne</option>
+                    <option>Egzamin wewnętrzny teoretyczny</option>
+                    <option>Egzamin wewnętrzny praktyczny</option>
+                    <option>Zadanie domowe</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-12">
+                    
+                    <label>Termin</label>
+                    <input type="date" class="form-control">
+                    
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-12">
+                    
+                    <label>Godzina</label>
+                    <input type="time" class="form-control">
+                    
+                  </div>
+
+                </div>
+                
+              </div>
+            
+              </div>
+                </div>
+            <div class="col-xl-6 col-md-6 mb-6">
+            <div class="card card-primary">
+              <div class="card-header py-3">
+                <h3 class="card-title">Dane szkoły</h3>
+              </div>
+            
+             <div class="card-body">
+
+            <div class="form-group row">
+
+                    <div class="col-sm-12">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Miasto</label>
+                        <select class="form-control">
+                          <option>Poznań</option>
+                          <option>Wrocław</option>
+                          <option>Gdańsk</option>
+                          <option>Lublin</option>
+
+                        </select>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="form-group row">
+                <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Oddział</label>
+                        <select class="form-control">
+                          <option>POZ</option>
+                          <option>WRO</option>
+                          <option>GDN</option>
+                          <option>LUB</option>
+                        </select>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="form-group row">
+                <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Instruktor</label>
+                        <select class="form-control">
+                          <option>Janusz Januszowski</option>
+                          <option>Kolo Kolutek</option>
+                          <option>Wariacik Szybki</option>
+                          <option>Nie Wiem Czy To Dobry Pomysł</option>
+                        </select>
+                      </div>
+                    </div>
+                 </div>
+              </div>    
+              </div>
+               
               <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
+           
+            </div>
+     
+        <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                        Anuluj
+                    </button>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Czy na pewno anulować?</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Anuluj</button>
+                                    <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+      
         </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </section>
+     
+      </section>
+    </div>
+
     <!-- /.content -->
-  </div>
+
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
@@ -920,40 +1014,16 @@
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+
 <!-- Page specific script -->
 <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
+$(function () {
+  bsCustomFileInput.init();
+});
 </script>
 </body>
 </html>
