@@ -104,10 +104,9 @@
                       <div class="form-group">
                         <label>Miasto</label>
                         <select class="form-control">
-                          <option>Poznań</option>
-                          <option>Wrocław</option>
-                          <option>Gdańsk</option>
-                          <option>Lublin</option>
+                            <c:forEach items="${cities}" var="variable">
+                                <option>${variable.name}</option>
+                            </c:forEach>
 
                         </select>
                       </div>
@@ -118,10 +117,9 @@
                       <div class="form-group">
                         <label>Oddział</label>
                         <select class="form-control">
-                          <option>POZ</option>
-                          <option>WRO</option>
-                          <option>GDN</option>
-                          <option>LUB</option>
+                            <c:forEach items="${cities}" var="variable">
+                                <option >${variable.name}</option>
+                            </c:forEach>
                         </select>
                       </div>
                     </div>
