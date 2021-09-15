@@ -20,7 +20,7 @@
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 <%--  left sidebar--%>
-<%@include file="dynamic/leftSidebar.jspf"%>
+<%@include file="dynamic/Sidebar.jspf"%>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

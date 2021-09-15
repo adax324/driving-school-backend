@@ -21,7 +21,7 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
- <%@include file="../../dynamic/leftSidebar.jspf"%>
+ <%@include file="../../dynamic/Sidebar.jspf"%>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

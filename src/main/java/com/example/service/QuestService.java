@@ -18,4 +18,8 @@ public class QuestService {
     public List<Quest> getAllQuests(){
         return questRepository.findAll();
     }
+
+    public void addQuest(Quest quest) {
+        questRepository.saveAndFlush(quest);
+    }
 }

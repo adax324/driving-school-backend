@@ -10,14 +10,13 @@
   <title>Szkoła jazdy | Lista Kursantów</title>
   <%@include file="../../dynamic/baseCss.jspf"%>
   <!-- DataTables -->
-
   <link rel="stylesheet" href='<c:url value="../../dynamic/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"/>'>
   <link rel="stylesheet" href='<c:url value="../../dynamic/plugins/datatables-responsive/css/responsive.bootstrap4.min.css"/>'>
   <link rel="stylesheet" href='<c:url value="../../dynamic/plugins/datatables-buttons/css/buttons.bootstrap4.min.css"/>'>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-  <%@include file="../../dynamic/leftSidebar.jspf"%>
+  <%@include file="../../dynamic/Sidebar.jspf"%>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -53,7 +52,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class = " mb-2 col-sm-2 col-md-2">                    
-                    <a href="#" class="btn btn-success">+ Dodaj lekcję</a>
+                    <a href='<c:url value="/lesson/add"/>' class="btn btn-success">+ Dodaj lekcję</a>
                   </div>
                 </div>              
                
@@ -95,12 +94,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <%@include file="../../dynamic/footer.jspf"%>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
