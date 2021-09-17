@@ -1,13 +1,10 @@
 package com.example.contoller;
 
-import com.example.model.City;
-import com.example.service.CityService;
+import com.example.model.companyadmin.City;
+import com.example.service.companyadmin.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 public class CityTempController {
@@ -17,7 +14,7 @@ public class CityTempController {
         this.cityService = cityService;
     }
 
-    @GetMapping("/xd")
+    @GetMapping("/test")
     public City getCities(){
         return cityService.getCityById(1L);
     }

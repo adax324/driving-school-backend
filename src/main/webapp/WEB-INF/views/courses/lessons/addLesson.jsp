@@ -103,9 +103,9 @@
                       <!-- select -->
                       <div class="form-group">
                         <label>Miasto</label>
-                        <select class="form-control">
+                        <select class="form-control" id="xds">
                             <c:forEach items="${cities}" var="variable">
-                                <option>${variable.name}</option>
+                                <option id="c${variable.cityId}" value="${variable.cityId}">${variable.cityName}</option>
                             </c:forEach>
 
                         </select>
@@ -116,9 +116,14 @@
                 <div class="col-sm-12">
                       <div class="form-group">
                         <label>Oddział</label>
-                        <select class="form-control">
-                            <c:forEach items="${cities}" var="variable">
-                                <option >${variable.name}</option>
+                        <select class="form-control" disabled>
+                            <c:forEach items="${departments}" var="variable">
+                               <c:if test="${xds==variable.departmentCityLocation.cityId}">
+                                   <option >${variable.departmentCode}</option>
+
+                               </c:if>
+
+
                             </c:forEach>
                         </select>
                       </div>
