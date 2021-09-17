@@ -834,7 +834,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>${Imię i Nazwisko kursanta}</h1>
+            <h1>${Imię i Nazwisko instruktora}</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -855,7 +855,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header py-3">
-                <h3 class="card-title">Dane kursanta</h3>
+                <h3 class="card-title">Dane instruktora</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -892,25 +892,12 @@
                     <input class="form-control form-control-sm" type="text" name="telefon" placeholder="Numer...">
                     </div>
                 </div>
-                                <div class="form-group row">
-            <div class="col-12">
-                   <label for="hoursEndCourse" class="col-form-label">Ilość pozostałych godzin:</label>
-                    <input class="form-control form-control-sm" type="text" name="godziny" placeholder="Ilość pozostałych godzin...">
-                    </div>
                 </div>
-
-            
-            
-                <div class="form-group row">
-                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                      <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                      <label class="custom-control-label" for="customSwitch3">Czy kursant gotowy do egzaminu?</label>
-                    </div>
-                  </div>
               </div>
             
-              </div>
-                </div>
+            
+            </div>
+            
             <div class="col-xl-6 col-md-6 mb-6">
             <div class="card card-primary">
               <div class="card-header py-3">
@@ -949,84 +936,8 @@
                     </div>
                  </div>
                  <div class="form-group row">
-                <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Instruktor</label>
-                        <select class="form-control" disabled>
-                          <option>Janusz Januszowski</option>
-                          <option>Kolo Kolutek</option>
-                          <option>Wariacik Szybki</option>
-                          <option>Nie Wiem Czy To Dobry Pomysł</option>
-                        </select>
-                      </div>
-                    </div>
+
                  </div>
-                         <div class="row">
-          <div class="col-xl-12 col-md-12 mb-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Dane kursu</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">lp.</th>
-                      <th>Nauka|Egzamin</th>
-                      <th>Wykonano</th>
-                      <th style="width: 40px">Wynik</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Ilość wyjeżdzonych godzin</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-warning" style="width: 55%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-warning">55%</span></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Egzamin wewnętrzny</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar bg-warning" style="width: 70%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-warning">70%</span></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Egzamin teoretyczny</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-primary" style="width: 30%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-primary">30%</span></td>
-                    </tr>
-                    <tr>
-                      <td>4.</td>
-                      <td>Egzamin praktyczny</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-success" style="width: 0%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg">0%</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-            </div>
-          </div>
               </div>    
               </div>
                
