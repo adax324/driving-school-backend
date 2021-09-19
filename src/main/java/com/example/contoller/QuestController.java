@@ -1,16 +1,14 @@
 package com.example.contoller;
 
 import com.example.model.Quest;
+import com.example.model.companyadmin.City;
 import com.example.service.companyadmin.CityService;
 import com.example.service.QuestService;
 import com.example.service.companyadmin.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -31,13 +29,24 @@ public class QuestController {
         model.addAttribute("temp",questService.getAllQuests());
         return "/courses/lessons/lessonsList";
     }
-    @GetMapping("/add")
-    public String getAddQuest(Model model){
+    @GetMapping("/selectcity")
+    public String getSelectCity(Model model){
         model.addAttribute("cities",cityService.getAllCities());
-        model.addAttribute("departments",departmentService.readAllDepartments());
+        return "/courses/lessons/selectCity";
+    }
+    @GetMapping("/selectdepartment")
+    public String getSelectDepartment(Model model,@RequestParam Long cityId){
+        City city=cityService.getCityById(cityId);
+        model.addAttribute("city",city);
+        model.addAttribute("departments",departmentService.readAllDepartmentsByCity(city));
+        return "/courses/lessons/selectDepartment";
+    }
+    @GetMapping("/addquest")
+    public String getAddQuest(@RequestParam Long cityId,@RequestParam Long departmentId){
+
         return "/courses/lessons/addLesson";
     }
-    @PostMapping("/add")
+    @PostMapping("/addquest")
     public RedirectView postAddQuest(@ModelAttribute Quest quest){
 
         questService.addQuest(quest);

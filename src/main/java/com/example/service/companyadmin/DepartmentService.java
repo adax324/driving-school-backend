@@ -28,6 +28,10 @@ public class DepartmentService {
     public List<Department> readAllDepartments(){
         return departmentRepository.findAll();
     }
+    public List<Department> readAllDepartmentsByCity(City city) {
+        return departmentRepository.findAllByDepartmentCityLocation(city);
+
+    }
     public Department updateDepartment(Department department,Long id){
         Department editedDepartment=departmentRepository.findById(id).orElse(null);
         editedDepartment.updateFields(department);
@@ -36,4 +40,6 @@ public class DepartmentService {
     public void deleteDepartment(Long id){
         departmentRepository.deleteById(id);
     }
+
+
 }

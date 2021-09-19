@@ -52,7 +52,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class = " mb-2 col-sm-2 col-md-2">                    
-                    <a href='<c:url value="/lesson/add"/>' class="btn btn-success">+ Dodaj lekcję</a>
+                    <a href='<c:url value="/lesson/selectcity"/>' class="btn btn-success">+ Dodaj lekcję</a>
                   </div>
                 </div>              
                
