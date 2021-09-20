@@ -38,58 +38,7 @@
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-xl-6 col-md-6 mb-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header py-3">
-                <h3 class="card-title">Dane:</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-            <form method="post" action='<c:url value="/lesson/addquest?departmentId=${department.id}"/>'>
-            <div class="card-body">
-            <div class="form-group row">
-                     <div class="col-12">
-                     <label>Kursant</label>
-                      <select class="form-control"></select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-12">
-                  <label >Rodzaj zajęć</label>
-                  <select class="form-control" name="questName">
-                      <option hidden>Wybierz</option>
-                    <option value="1">Zajęcia teoretyczne</option>
-                    <option value="2">Zajęcia praktyczne</option>
-                    <option value="3">Egzamin wewnętrzny teoretyczny</option>
-                    <option value="4">Egzamin wewnętrzny praktyczny</option>
-                    <option value="5">Zadanie domowe</option>
-                  </select>
-                </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-12">
-                    
-                    <label>Termin</label>
-                    <input type="date" class="form-control">
-                    
-                  </div>
 
-                </div>
-                <div class="form-group row">
-                  <div class="col-12">
-                    
-                    <label>Godzina</label>
-                    <input type="time" class="form-control">
-                    
-                  </div>
-
-                </div>
-                
-              </div>
-            
-              </div>
-                </div>
             <div class="col-xl-6 col-md-6 mb-6">
             <div class="card card-primary">
               <div class="card-header py-3">
@@ -104,9 +53,9 @@
                       <!-- select -->
                       <div class="form-group">
                         <label>Miasto</label>
-                        <select class="form-control" id="citySelect" disabled >
+                        <select class="form-control"  disabled>
 
-                                <option id="c${city.cityId}" value="${city.cityId}" selected>${city.cityName}</option>
+                                <option id="c${city.cityId}" value="${city.cityId}">${city.cityName}</option>
 
 
                         </select>
@@ -117,37 +66,27 @@
                 <div class="col-sm-12">
                       <div class="form-group">
                         <label>Oddział</label>
-                        <select class="form-control" disabled name="departmentId">
-                            <option value="${department.id}" selected>
-                                ${department.departmentCode}
-                            </option>
+                        <select class="form-control" id="departmentSelect">
+                            <option hidden>Wybierz</option>
+                            <c:forEach items="${departments}" var="item">
+                                <option value="${item.id}">${item.departmentCode}</option>
+                            </c:forEach>
                         </select>
                       </div>
                     </div>
                  </div>
-                 <div class="form-group row">
-                <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Instruktor</label>
-                        <select class="form-control">
-                          <option>Janusz Januszowski</option>
-                          <option>Kolo Kolutek</option>
-                          <option>Wariacik Szybki</option>
-                          <option>Nie Wiem Czy To Dobry Pomysł</option>
-                        </select>
-                      </div>
-                    </div>
-                 </div>
+
               </div>    
               </div>
-
+               
               <!-- /.card-body -->
             </div>
            
             </div>
-     
-        <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
-          </form>
+
+          <a style="text-decoration: none"  href="javascript:window.location=abcd()"><button  class="btn btn-success pull-left" type="button"  id="searchButton">
+              Dalej
+          </button></a>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Anuluj
                     </button>
@@ -181,7 +120,7 @@
 
     <!-- /.content -->
 
-  <%@include file="../../dynamic/footer.jspf"%>
+    <%@include file="../../dynamic/footer.jspf"%>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -205,6 +144,15 @@
 $(function () {
   bsCustomFileInput.init();
 });
+</script>
+<script>
+    var id;
+    $('#departmentSelect').change(function() {
+        id=$(this).find('option:selected').attr('value');
+    });
+    function abcd(){
+        return "addquest?cityId="+${city.cityId}+"&departmentId="+this.id;
+    }
 </script>
 </body>
 </html>

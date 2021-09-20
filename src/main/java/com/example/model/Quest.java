@@ -18,9 +18,9 @@ public class Quest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long questId;
     private String questName;
-    private Long studentId;
-    private Long teacherId;
-    private Long locationId;
+    private Long studentId=1L;//temp
+    private Long teacherId=1L;//temp
+    private Long departmentId;
 
 
 }

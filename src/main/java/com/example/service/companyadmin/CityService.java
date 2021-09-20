@@ -1,7 +1,7 @@
-package com.example.service;
+package com.example.service.companyadmin;
 
-import com.example.model.City;
-import com.example.repository.CityRepository;
+import com.example.model.companyadmin.City;
+import com.example.repository.companyadmin.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,8 @@ public class CityService {
     public CityService(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
-    public void addCity(City city){
-        cityRepository.saveAndFlush(city);
+    public City addCity(City city){
+       return cityRepository.saveAndFlush(city);
     }
     public List<City> getAllCities(){
         List<City> cities=cityRepository.findAll();

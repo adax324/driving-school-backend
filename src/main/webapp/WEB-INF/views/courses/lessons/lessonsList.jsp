@@ -52,7 +52,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class = " mb-2 col-sm-2 col-md-2">                    
-                    <a href='<c:url value="/lesson/add"/>' class="btn btn-success">+ Dodaj lekcję</a>
+                    <a href='<c:url value="/lesson/selectcity"/>' class="btn btn-success">+ Dodaj lekcję</a>
                   </div>
                 </div>              
                
@@ -68,10 +68,27 @@
                   </tr>
                   </thead>
                   <tbody>
-                          <c:forEach items="${temp}" var="variable">
+                          <c:forEach items="${quests}" var="variable">
                             <tr>
                               <td>
+                                ${variable.studentId}
+                              </td>
+                              <td>
+                                ${variable.teacherId}
+                              </td>
+                              <td>
                                 ${variable.questName}
+                              </td>
+                              <td>
+                                data:czas
+                              </td>
+                              <td>
+                                ${variable.departmentId}
+                              </td>
+                              <td>
+                                <button class="">
+
+                                </button>
                               </td>
                             </tr>
                           </c:forEach>
