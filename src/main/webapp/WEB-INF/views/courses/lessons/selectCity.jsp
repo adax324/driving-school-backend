@@ -21,14 +21,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-2">
-            <h1>Nowe Zadanie</h1>
+            <h1>Wybór miasta</h1>
           </div>
-          <div class="col-sm-10">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">General Form</li>
-            </ol>
-          </div>
+
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -93,8 +88,9 @@
 
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Anuluj</button>
-                                    <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                                    <a style="text-decoration: none" href='<c:url value="/lesson/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
+
                                 </div>
 
                             </div>
@@ -109,13 +105,7 @@
 
     <!-- /.content -->
 
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <%@include file="../../dynamic/footer.jspf"%>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

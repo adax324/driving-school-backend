@@ -68,10 +68,27 @@
                   </tr>
                   </thead>
                   <tbody>
-                          <c:forEach items="${temp}" var="variable">
+                          <c:forEach items="${quests}" var="variable">
                             <tr>
                               <td>
+                                ${variable.studentId}
+                              </td>
+                              <td>
+                                ${variable.teacherId}
+                              </td>
+                              <td>
                                 ${variable.questName}
+                              </td>
+                              <td>
+                                data:czas
+                              </td>
+                              <td>
+                                ${variable.departmentId}
+                              </td>
+                              <td>
+                                <button class="">
+
+                                </button>
                               </td>
                             </tr>
                           </c:forEach>

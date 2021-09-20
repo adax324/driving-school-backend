@@ -26,7 +26,7 @@ public class QuestController {
 
     @GetMapping("/list")
     public String getLessonList(Model model){
-        model.addAttribute("temp",questService.getAllQuests());
+        model.addAttribute("quests",questService.getAllQuests());
         return "/courses/lessons/lessonsList";
     }
     @GetMapping("/selectcity")
@@ -42,13 +42,14 @@ public class QuestController {
         return "/courses/lessons/selectDepartment";
     }
     @GetMapping("/addquest")
-    public String getAddQuest(@RequestParam Long cityId,@RequestParam Long departmentId){
-
+    public String getAddQuest(Model model,@RequestParam Long cityId,@RequestParam Long departmentId){
+        model.addAttribute("city",cityService.getCityById(cityId));
+        model.addAttribute("department",departmentService.readDepartment(departmentId));
         return "/courses/lessons/addLesson";
     }
     @PostMapping("/addquest")
-    public RedirectView postAddQuest(@ModelAttribute Quest quest){
-
+    public RedirectView postAddQuest(@ModelAttribute Quest quest,@RequestParam Long departmentId){
+        quest.setDepartmentId(departmentId);
         questService.addQuest(quest);
         return new RedirectView("list");
 

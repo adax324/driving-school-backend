@@ -46,7 +46,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-       
+            <form method="post" action='<c:url value="/lesson/addquest?departmentId=${department.id}"/>'>
             <div class="card-body">
             <div class="form-group row">
                      <div class="col-12">
@@ -57,12 +57,13 @@
                 <div class="form-group row">
                   <div class="col-12">
                   <label >Rodzaj zajęć</label>
-                  <select class="form-control">
-                    <option>Zajęcia teoretyczne</option>
-                    <option>Zajęcia praktyczne</option>
-                    <option>Egzamin wewnętrzny teoretyczny</option>
-                    <option>Egzamin wewnętrzny praktyczny</option>
-                    <option>Zadanie domowe</option>
+                  <select class="form-control" name="questName">
+                      <option hidden>Wybierz</option>
+                    <option value="1">Zajęcia teoretyczne</option>
+                    <option value="2">Zajęcia praktyczne</option>
+                    <option value="3">Egzamin wewnętrzny teoretyczny</option>
+                    <option value="4">Egzamin wewnętrzny praktyczny</option>
+                    <option value="5">Zadanie domowe</option>
                   </select>
                 </div>
                 </div>
@@ -103,10 +104,10 @@
                       <!-- select -->
                       <div class="form-group">
                         <label>Miasto</label>
-                        <select class="form-control" id="xds">
-                            <c:forEach items="${cities}" var="variable">
-                                <option id="c${variable.cityId}" value="${variable.cityId}">${variable.cityName}</option>
-                            </c:forEach>
+                        <select class="form-control" id="citySelect" disabled >
+
+                                <option id="c${city.cityId}" value="${city.cityId}" selected>${city.cityName}</option>
+
 
                         </select>
                       </div>
@@ -116,8 +117,10 @@
                 <div class="col-sm-12">
                       <div class="form-group">
                         <label>Oddział</label>
-                        <select class="form-control" disabled>
-
+                        <select class="form-control" disabled name="departmentId">
+                            <option value="${department.id}" selected>
+                                ${department.departmentCode}
+                            </option>
                         </select>
                       </div>
                     </div>
@@ -137,13 +140,14 @@
                  </div>
               </div>    
               </div>
-               
+
               <!-- /.card-body -->
             </div>
            
             </div>
      
-        <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton">
+        <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
+          </form>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Anuluj
                     </button>
@@ -161,8 +165,8 @@
 
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Anuluj</button>
-                                    <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                                    <a style="text-decoration: none" href='<c:url value="/lesson/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
                                 </div>
 
                             </div>
@@ -177,13 +181,7 @@
 
     <!-- /.content -->
 
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <%@include file="../../dynamic/footer.jspf"%>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
