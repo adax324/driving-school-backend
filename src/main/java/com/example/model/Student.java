@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 import javax.persistence.Entity;
 import java.util.Date;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 @Setter
 @ToString
 public class Student {
+
 
     private Long id;
     private String firstName;
