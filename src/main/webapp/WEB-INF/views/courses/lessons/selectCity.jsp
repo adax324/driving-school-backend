@@ -52,6 +52,7 @@
                             <option hidden>Wybierz</option>
                             <c:forEach items="${cities}" var="variable" varStatus="loop">
                                 <option id="c${loop.index}" value="${variable.cityId}">${variable.cityName}</option>
+
                             </c:forEach>
 
                         </select>
