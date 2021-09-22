@@ -27,12 +27,7 @@
           <div class="col-sm-6">
             <h1>Zajęcia</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Strona główna</a></li>
-              <li class="breadcrumb-item active">Zajęcia</li>
-            </ol>
-          </div>
+
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -86,8 +81,8 @@
                                 ${variable.departmentId}
                               </td>
                               <td>
-                                <button class="">
-
+                                <button class="btn btn-secondary btn-block">
+                                Edytuj
                                 </button>
                               </td>
                             </tr>
