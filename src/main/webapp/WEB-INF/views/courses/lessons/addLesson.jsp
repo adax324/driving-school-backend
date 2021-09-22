@@ -59,11 +59,11 @@
                   <label >Rodzaj zajęć</label>
                   <select class="form-control" name="questName">
                       <option hidden>Wybierz</option>
-                    <option value="1">Zajęcia teoretyczne</option>
-                    <option value="2">Zajęcia praktyczne</option>
-                    <option value="3">Egzamin wewnętrzny teoretyczny</option>
-                    <option value="4">Egzamin wewnętrzny praktyczny</option>
-                    <option value="5">Zadanie domowe</option>
+                    <option value="theory">Zajęcia teoretyczne</option>
+                    <option value="practice">Zajęcia praktyczne</option>
+                    <option value="theoryTest">Egzamin wewnętrzny teoretyczny</option>
+                    <option value="practiceTest">Egzamin wewnętrzny praktyczny</option>
+                    <option value="homework">Zadanie domowe</option>
                   </select>
                 </div>
                 </div>
