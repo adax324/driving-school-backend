@@ -19,6 +19,7 @@ public class QuestService {
         return questRepository.findAll();
     }
 
+    // added test comments
     public void addQuest(Quest quest) {
         questRepository.saveAndFlush(quest);
     }
