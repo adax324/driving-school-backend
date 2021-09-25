@@ -28,18 +28,18 @@ public class Student {
     @NotNull
     @NotEmpty
     @Size(min = 1, max = 20, message
-            = "Imie musi zawierać od 1 do 2 liter")
+            = "Imie musi zawierać od 1 do 20 liter")
     private String firstName;
     @NotNull
     @NotEmpty
     @Size(min = 1, max = 20, message
-            = "Imie musi zawierać od 1 do 2 liter")
+            = "Nazwisko musi zawierać od 1 do 20 liter")
     private String secondName;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
-    @Email(message = "Email should be valid")
+    @Email(message = "Niepoprawny adres email")
     private String email;
 
     @Pattern(regexp="(^[0-9]{10})")
