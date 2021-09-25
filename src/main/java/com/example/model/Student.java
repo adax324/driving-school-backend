@@ -55,4 +55,8 @@ public class Student {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+
+    public Long getId() {
+        return id;
+    }
 }

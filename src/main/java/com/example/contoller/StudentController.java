@@ -1,6 +1,7 @@
 package com.example.contoller;
 
 import com.example.model.Student;
+import com.example.model.companyadmin.City;
 import com.example.repository.StudentRepository;
 import com.example.service.StudentService;
 import org.springframework.stereotype.Controller;
@@ -61,6 +62,12 @@ public class StudentController {
     public RedirectView deleteStudent(@PathVariable String id, @ModelAttribute Student student) {
         studentRepository.delete(student);
         return new RedirectView("student/{id}");
+    }
+
+
+    @GetMapping("/studentTest")
+    public Student getStudent(){
+        return studentService.getStudentById(1L);
     }
 
 
