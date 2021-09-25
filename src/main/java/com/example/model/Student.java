@@ -44,7 +44,7 @@ public class Student {
     @Email(message = "Niepoprawny adres email")
     private String email;
 
-    @Pattern(regexp="(^[0-9]{10})")
+    @Pattern(regexp = "(^[0-9]{10})")
     private int phoneNumber;
 
     public Student(Long id, String firstName, String lastName, Date birthDate, String email, int phoneNumber) {

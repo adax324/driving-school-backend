@@ -1,7 +1,6 @@
 package com.example.service;
 
 import com.example.model.Student;
-import com.example.model.companyadmin.City;
 import com.example.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,7 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
 
@@ -35,10 +34,10 @@ public class StudentService {
         //System.out.println("deleting student on id: " + id);
     }
 
-    public Student getStudentById(Long id){
-        if (studentRepository.findById(id).isPresent()){
+    public Student getStudentById(Long id) {
+        if (studentRepository.findById(id).isPresent()) {
             return studentRepository.findById(id).get();
-        }else
+        } else
             return null;
     }
 
