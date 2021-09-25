@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -57,7 +58,7 @@
                 <div class="form-group row">
                   <div class="col-12">
                   <label >Rodzaj zajęć</label>
-                  <select class="form-control" name="questName">
+                  <select class="form-control" name="questType">
                       <option hidden>Wybierz</option>
                     <option value="theory">Zajęcia teoretyczne</option>
                     <option value="practice">Zajęcia praktyczne</option>
@@ -117,8 +118,8 @@
                 <div class="col-sm-12">
                       <div class="form-group">
                         <label>Oddział</label>
-                        <select class="form-control" disabled name="departmentId">
-                            <option value="${department.id}" selected>
+                        <select class="form-control" disabled>
+                            <option selected>
                                 ${department.departmentCode}
                             </option>
                         </select>

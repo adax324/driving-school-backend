@@ -4,6 +4,7 @@ import com.example.model.companyadmin.Department;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,8 +19,8 @@ public class Quest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long questId;
-    private String questName;
-
+    private String questType;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private LocalTime time;
 
@@ -27,7 +28,7 @@ public class Quest {
     private Long studentId=1L;//temp
     private Long teacherId=1L;//temp
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "departmentId")
     private Department department;
 
 

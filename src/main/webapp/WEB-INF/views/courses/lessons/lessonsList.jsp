@@ -72,13 +72,13 @@
                                 ${variable.teacherId}
                               </td>
                               <td>
-                                ${variable.questName}
+                                ${variable.questType}
                               </td>
                               <td>
                                 data:czas
                               </td>
                               <td>
-                                ${variable.departmentId}
+                                ${variable.department}
                               </td>
                               <td>
                                 <button class="btn btn-secondary btn-block">
