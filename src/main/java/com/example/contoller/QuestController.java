@@ -26,7 +26,7 @@ public class QuestController {
 
     @GetMapping("/list")
     public String getLessonList(Model model){
-        model.addAttribute("quests",questService.getAllQuests());
+        model.addAttribute("quests",questService.readAllQuests());
         return "/courses/lessons/lessonsList";
     }
     @GetMapping("/selectcity")
@@ -49,8 +49,8 @@ public class QuestController {
     }
     @PostMapping("/addquest")
     public RedirectView postAddQuest(@ModelAttribute Quest quest,@RequestParam Long departmentId){
-        quest.setDepartmentId(departmentId);
-        questService.addQuest(quest);
+        quest.setDepartment(departmentService.readDepartment(departmentId));
+        questService.createQuest(quest);
         return new RedirectView("list");
 
     }

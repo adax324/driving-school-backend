@@ -15,12 +15,12 @@ public class QuestService {
         this.questRepository = questRepository;
     }
 
-    public List<Quest> getAllQuests(){
+    public List<Quest> readAllQuests(){
         return questRepository.findAll();
     }
 
-    // added test comments
-    public void addQuest(Quest quest) {
+
+    public void createQuest(Quest quest) {
         questRepository.saveAndFlush(quest);
     }
 }

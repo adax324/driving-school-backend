@@ -1,13 +1,14 @@
 package com.example.model;
 
+import com.example.model.companyadmin.Department;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @NoArgsConstructor
@@ -18,9 +19,17 @@ public class Quest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long questId;
     private String questName;
+
+    private LocalDate date;
+    private LocalTime time;
+
+
     private Long studentId=1L;//temp
     private Long teacherId=1L;//temp
-    private Long departmentId;
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Department department;
+
 
 
 }

@@ -71,7 +71,7 @@
                   <div class="col-12">
                     
                     <label>Termin</label>
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" name="date">
                     
                   </div>
 
@@ -80,7 +80,7 @@
                   <div class="col-12">
                     
                     <label>Godzina</label>
-                    <input type="time" class="form-control">
+                    <input type="time" class="form-control" name="time">
                     
                   </div>
 
