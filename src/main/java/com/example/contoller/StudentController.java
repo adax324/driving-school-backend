@@ -4,6 +4,9 @@ import com.example.model.Student;
 import com.example.model.companyadmin.City;
 import com.example.repository.StudentRepository;
 import com.example.service.StudentService;
+import com.example.service.companyadmin.CityService;
+import com.example.service.companyadmin.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +18,15 @@ public class StudentController {
 
     private final StudentRepository studentRepository;
     private final StudentService studentService;
+    private final CityService cityService;
+    private final DepartmentService departmentService;
 
-    public StudentController(StudentRepository studentRepository, StudentService studentService) {
+    @Autowired
+    public StudentController(StudentRepository studentRepository, StudentService studentService, CityService cityService, DepartmentService departmentService) {
         this.studentRepository = studentRepository;
         this.studentService = studentService;
+        this.cityService = cityService;
+        this.departmentService = departmentService;
     }
 
 
@@ -29,14 +37,16 @@ public class StudentController {
     }
 
     @GetMapping("/addNewStudent")
-    public String getAddNewStudent() {
+    public String getAddNewStudent(Model model) {
+        model.addAttribute("cities", cityService.getAllCities());
+        model.addAttribute("department", departmentService.readAllDepartments());
         return "/courses/students/addStudent";
     }
 
 
     @PostMapping("/addNewStudent")
     public RedirectView postAddNewStudent(@ModelAttribute Student newStudent) {
-       studentRepository.save(newStudent);
+        studentRepository.save(newStudent);
         return new RedirectView("students");
     }
 
@@ -66,7 +76,7 @@ public class StudentController {
 
 
     @GetMapping("/studentTest")
-    public Student getStudent(){
+    public Student getStudent() {
         return studentService.getStudentById(1L);
     }
 
