@@ -35,7 +35,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <form class="content">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -47,7 +47,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-       
+                <form name="send" method="post" action='<c:url value="/addStudent"/>'>
             <div class="card-body">
             <div class="form-group row">
                      <div class="col-12">
@@ -141,7 +141,8 @@
             </div>
            
             </div>
-     
+
+          <form name="send" method="post" action='<c:url value="/addNewStudent"/>'>
         <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton">
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Anuluj
@@ -160,8 +161,8 @@
 
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Anuluj</button>
-                                    <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                                    <a style="text-decoration: none" href='<c:url value="/students"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
                                 </div>
 
                             </div>
@@ -170,6 +171,7 @@
                     </div>
       
         </div>
+    </form>
      
       </section>
     </div>

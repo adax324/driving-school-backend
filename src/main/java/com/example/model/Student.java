@@ -25,7 +25,6 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     @NotNull
@@ -37,7 +36,7 @@ public class Student {
     @NotEmpty
     @Size(min = 1, max = 20, message
             = "Nazwisko musi zawierać od 1 do 20 liter")
-    private String secondName;
+    private String lastName;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
@@ -48,5 +47,12 @@ public class Student {
     @Pattern(regexp="(^[0-9]{10})")
     private int phoneNumber;
 
-
+    public Student(Long id, String firstName, String lastName, Date birthDate, String email, int phoneNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 }
