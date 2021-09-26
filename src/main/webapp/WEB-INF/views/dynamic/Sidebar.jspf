@@ -222,6 +222,12 @@
                                 <p>Oddziały</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href='<c:url value="/vehicle/list"/>' class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pojazdy</p>
+                            </a>
+                        </li>
                     </ul>
 
                 </li>
