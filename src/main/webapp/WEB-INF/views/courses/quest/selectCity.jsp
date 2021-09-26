@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@ page contentType="text/html; charset=UTF-8" %>
-
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -22,14 +21,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-2">
-            <h1>Nowe Zadanie</h1>
+            <h1>Wybór miasta</h1>
           </div>
-          <div class="col-sm-10">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">General Form</li>
-            </ol>
-          </div>
+
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -38,65 +32,14 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <!-- left column -->
-          <div class="col-xl-6 col-md-6 mb-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header py-3">
-                <h3 class="card-title">Dane:</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-            <form method="post" action='<c:url value="/lesson/addquest?departmentId=${department.departmentId}"/>'>
-            <div class="card-body">
-            <div class="form-group row">
-                     <div class="col-12">
-                     <label>Kursant</label>
-                      <select class="form-control"></select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-12">
-                  <label >Rodzaj zajęć</label>
-                  <select class="form-control" name="questType">
-                      <option hidden>Wybierz</option>
-                    <option value="theory">Zajęcia teoretyczne</option>
-                    <option value="practice">Zajęcia praktyczne</option>
-                    <option value="theoryTest">Egzamin wewnętrzny teoretyczny</option>
-                    <option value="practiceTest">Egzamin wewnętrzny praktyczny</option>
-                    <option value="homework">Zadanie domowe</option>
-                  </select>
-                </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-12">
-                    
-                    <label>Termin</label>
-                    <input type="date" class="form-control" name="date">
-                    
-                  </div>
 
-                </div>
-                <div class="form-group row">
-                  <div class="col-12">
-                    
-                    <label>Godzina</label>
-                    <input type="time" class="form-control" name="time">
-                    
-                  </div>
 
-                </div>
-                
-              </div>
-            
-              </div>
-                </div>
             <div class="col-xl-6 col-md-6 mb-6">
             <div class="card card-primary">
               <div class="card-header py-3">
                 <h3 class="card-title">Dane szkoły</h3>
               </div>
-            
+
              <div class="card-body">
 
             <div class="form-group row">
@@ -105,50 +48,30 @@
                       <!-- select -->
                       <div class="form-group">
                         <label>Miasto</label>
-                        <select class="form-control" id="citySelect" disabled >
+                        <select class="form-control" id="selectCity">
+                            <option hidden>Wybierz</option>
+                            <c:forEach items="${cities}" var="variable" varStatus="loop">
+                                <option id="c${loop.index}" value="${variable.cityId}">${variable.cityName}</option>
 
-                                <option id="c${city.cityId}" value="${city.cityId}" selected>${city.cityName}</option>
+                            </c:forEach>
 
-
-                        </select>
-                      </div>
-                    </div>
-                 </div>
-                 <div class="form-group row">
-                <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Oddział</label>
-                        <select class="form-control" disabled>
-                            <option selected>
-                                ${department.departmentCode}
-                            </option>
-                        </select>
-                      </div>
-                    </div>
-                 </div>
-                 <div class="form-group row">
-                <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Instruktor</label>
-                        <select class="form-control">
-                          <option>Janusz Januszowski</option>
-                          <option>Kolo Kolutek</option>
-                          <option>Wariacik Szybki</option>
-                          <option>Nie Wiem Czy To Dobry Pomysł</option>
                         </select>
                       </div>
                     </div>
                  </div>
               </div>    
               </div>
-
+               
               <!-- /.card-body -->
             </div>
            
             </div>
-     
-        <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
-          </form>
+
+        <a style="text-decoration: none"  href="javascript:window.location=abcd()"><button  class="btn btn-success pull-left" type="button"  id="searchButton">
+            Dalej
+        </button></a>
+
+
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Anuluj
                     </button>
@@ -168,6 +91,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
                                     <a style="text-decoration: none" href='<c:url value="/lesson/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
+
                                 </div>
 
                             </div>
@@ -206,6 +130,16 @@
 $(function () {
   bsCustomFileInput.init();
 });
+</script>
+<%--skrypt budujący parametr na podstawie select--%>
+<script>
+    var id;
+    $('#selectCity').change(function() {
+        id=$(this).find('option:selected').attr('value');
+    });
+    function abcd(){
+        return "department?cityId="+this.id;
+    }
 </script>
 </body>
 </html>

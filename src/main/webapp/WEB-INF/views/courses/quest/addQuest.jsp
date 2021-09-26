@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -38,7 +39,58 @@
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
+          <div class="col-xl-6 col-md-6 mb-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header py-3">
+                <h3 class="card-title">Dane:</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+            <form method="post" action='<c:url value="/quest/add?departmentId=${department.departmentId}"/>'>
+            <div class="card-body">
+            <div class="form-group row">
+                     <div class="col-12">
+                     <label>Kursant</label>
+                      <select class="form-control"></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-12">
+                  <label >Rodzaj zajęć</label>
+                  <select class="form-control" name="questType">
+                      <option hidden>Wybierz</option>
+                    <option value="theory">Zajęcia teoretyczne</option>
+                    <option value="practice">Zajęcia praktyczne</option>
+                    <option value="theoryTest">Egzamin wewnętrzny teoretyczny</option>
+                    <option value="practiceTest">Egzamin wewnętrzny praktyczny</option>
+                    <option value="homework">Zadanie domowe</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-12">
+                    
+                    <label>Termin</label>
+                    <input type="date" class="form-control" name="date">
+                    
+                  </div>
 
+                </div>
+                <div class="form-group row">
+                  <div class="col-12">
+                    
+                    <label>Godzina</label>
+                    <input type="time" class="form-control" name="time">
+                    
+                  </div>
+
+                </div>
+                
+              </div>
+            
+              </div>
+                </div>
             <div class="col-xl-6 col-md-6 mb-6">
             <div class="card card-primary">
               <div class="card-header py-3">
@@ -53,9 +105,9 @@
                       <!-- select -->
                       <div class="form-group">
                         <label>Miasto</label>
-                        <select class="form-control"  disabled>
+                        <select class="form-control" id="citySelect" disabled >
 
-                                <option id="c${city.cityId}" value="${city.cityId}">${city.cityName}</option>
+                                <option id="c${city.cityId}" value="${city.cityId}" selected>${city.cityName}</option>
 
 
                         </select>
@@ -66,27 +118,37 @@
                 <div class="col-sm-12">
                       <div class="form-group">
                         <label>Oddział</label>
-                        <select class="form-control" id="departmentSelect">
-                            <option hidden>Wybierz</option>
-                            <c:forEach items="${departments}" var="item">
-                                <option value="${item.departmentId}">${item.departmentCode}</option>
-                            </c:forEach>
+                        <select class="form-control" disabled>
+                            <option selected>
+                                ${department.departmentCode}
+                            </option>
                         </select>
                       </div>
                     </div>
                  </div>
-
+                 <div class="form-group row">
+                <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Instruktor</label>
+                        <select class="form-control">
+                          <option>Janusz Januszowski</option>
+                          <option>Kolo Kolutek</option>
+                          <option>Wariacik Szybki</option>
+                          <option>Nie Wiem Czy To Dobry Pomysł</option>
+                        </select>
+                      </div>
+                    </div>
+                 </div>
               </div>    
               </div>
-               
+
               <!-- /.card-body -->
             </div>
            
             </div>
-
-          <a style="text-decoration: none"  href="javascript:window.location=abcd()"><button  class="btn btn-success pull-left" type="button"  id="searchButton">
-              Dalej
-          </button></a>
+     
+        <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
+          </form>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Anuluj
                     </button>
@@ -105,7 +167,7 @@
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
-                                    <a style="text-decoration: none" href='<c:url value="/lesson/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
+                                    <a style="text-decoration: none" href='<c:url value="/quest/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
                                 </div>
 
                             </div>
@@ -120,7 +182,7 @@
 
     <!-- /.content -->
 
-    <%@include file="../../dynamic/footer.jspf"%>
+  <%@include file="../../dynamic/footer.jspf"%>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -144,15 +206,6 @@
 $(function () {
   bsCustomFileInput.init();
 });
-</script>
-<script>
-    var id;
-    $('#departmentSelect').change(function() {
-        id=$(this).find('option:selected').attr('value');
-    });
-    function abcd(){
-        return "addquest?cityId="+${city.cityId}+"&departmentId="+this.id;
-    }
 </script>
 </body>
 </html>

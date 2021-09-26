@@ -38,7 +38,7 @@ public class StudentController {
 
     @GetMapping("/addNewStudent")
     public String getAddNewStudent(Model model) {
-        model.addAttribute("cities", cityService.getAllCities());
+        model.addAttribute("cities", cityService.readAllCities());
         model.addAttribute("department", departmentService.readAllDepartments());
         return "/courses/students/addStudent";
     }
