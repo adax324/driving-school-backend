@@ -31,7 +31,7 @@ public class QuestService {
 
     public Quest updateQuest(Long id, Quest updatedQuest) {
         Quest currentQuest = questRepository.findById(id).orElseThrow(NoSuchElementException::new);
-
+        currentQuest.updateFields(updatedQuest);
         return questRepository.saveAndFlush(currentQuest);
 
     }

@@ -21,9 +21,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-2">
-            <h1>Wybór miasta</h1>
+            <h1>Nowe Zadanie</h1>
           </div>
-
+          <div class="col-sm-10">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">General Form</li>
+            </ol>
+          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -32,14 +37,14 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-
+          <!-- left column -->
 
             <div class="col-xl-6 col-md-6 mb-6">
             <div class="card card-primary">
               <div class="card-header py-3">
                 <h3 class="card-title">Dane szkoły</h3>
               </div>
-
+            
              <div class="card-body">
 
             <div class="form-group row">
@@ -48,17 +53,29 @@
                       <!-- select -->
                       <div class="form-group">
                         <label>Miasto</label>
-                        <select class="form-control" id="selectCity">
-                            <option hidden>Wybierz</option>
-                            <c:forEach items="${cities}" var="variable" varStatus="loop">
-                                <option id="c${loop.index}" value="${variable.cityId}">${variable.cityName}</option>
+                        <select class="form-control"  disabled>
 
-                            </c:forEach>
+                                <option id="c${city.cityId}" value="${city.cityId}">${city.cityName}</option>
+
 
                         </select>
                       </div>
                     </div>
                  </div>
+                 <div class="form-group row">
+                <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Oddział</label>
+                        <select class="form-control" id="departmentSelect">
+                            <option hidden>Wybierz</option>
+                            <c:forEach items="${departments}" var="item">
+                                <option value="${item.departmentId}">${item.departmentCode}</option>
+                            </c:forEach>
+                        </select>
+                      </div>
+                    </div>
+                 </div>
+
               </div>    
               </div>
                
@@ -67,11 +84,9 @@
            
             </div>
 
-        <a style="text-decoration: none"  href="javascript:window.location=abcd()"><button  class="btn btn-success pull-left" type="button"  id="searchButton">
-            Dalej
-        </button></a>
-
-
+          <a style="text-decoration: none"  href="javascript:window.location=abcd()"><button  class="btn btn-success pull-left" type="button"  id="searchButton">
+              Dalej
+          </button></a>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Anuluj
                     </button>
@@ -91,7 +106,6 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
                                     <a style="text-decoration: none" href='<c:url value="/lesson/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
-
                                 </div>
 
                             </div>
@@ -106,7 +120,7 @@
 
     <!-- /.content -->
 
-  <%@include file="../../dynamic/footer.jspf"%>
+    <%@include file="../../dynamic/footer.jspf"%>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -131,14 +145,13 @@ $(function () {
   bsCustomFileInput.init();
 });
 </script>
-<%--skrypt budujący parametr na podstawie select--%>
 <script>
     var id;
-    $('#selectCity').change(function() {
+    $('#departmentSelect').change(function() {
         id=$(this).find('option:selected').attr('value');
     });
     function abcd(){
-        return "selectdepartment?cityId="+this.id;
+        return "add?cityId="+${city.cityId}+"&departmentId="+this.id;
     }
 </script>
 </body>

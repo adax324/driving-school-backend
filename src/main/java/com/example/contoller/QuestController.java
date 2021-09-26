@@ -2,6 +2,7 @@ package com.example.contoller;
 
 import com.example.model.Quest;
 import com.example.model.companyadmin.City;
+import com.example.service.StudentService;
 import com.example.service.companyadmin.CityService;
 import com.example.service.QuestService;
 import com.example.service.companyadmin.DepartmentService;
@@ -12,41 +13,46 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
-@RequestMapping("/lesson")
+@RequestMapping("/quest")
 public class QuestController {
     private QuestService questService;
     private CityService cityService;
     private DepartmentService departmentService;
+    private StudentService studentService;
+
 
     @Autowired
-    public QuestController(QuestService questService, CityService cityService, DepartmentService departmentService) {
+    public QuestController(QuestService questService, CityService cityService, DepartmentService departmentService, StudentService studentService) {
         this.questService = questService;
         this.cityService = cityService;
         this.departmentService = departmentService;
+        this.studentService = studentService;
     }
 
-    @GetMapping("/selectcity")
+    @GetMapping("/city")
     public String getSelectCity(Model model) {
         model.addAttribute("cities", cityService.readAllCities());
-        return "/courses/lessons/selectCity";
+        return "/courses/quest/selectCity";
     }
 
-    @GetMapping("/selectdepartment")
+    @GetMapping("/department")
     public String getSelectDepartment(Model model, @RequestParam Long cityId) {
         City city = cityService.readCityById(cityId);
         model.addAttribute("city", city);
         model.addAttribute("departments", departmentService.readAllDepartmentsByCity(city));
-        return "/courses/lessons/selectDepartment";
+
+        return "/courses/quest/selectDepartment";
     }
 
-    @GetMapping("/addquest")
+    @GetMapping("/add")
     public String getAddQuest(Model model, @RequestParam Long cityId, @RequestParam Long departmentId) {
         model.addAttribute("city", cityService.readCityById(cityId));
         model.addAttribute("department", departmentService.readDepartment(departmentId));
-        return "/courses/lessons/addLesson";
+        model.addAttribute("students",studentService.getAllStudents());
+        return "/courses/quest/addQuest";
     }
 
-    @PostMapping("/addquest")
+    @PostMapping("/add")
     public RedirectView postAddQuest(@ModelAttribute Quest quest, @RequestParam Long departmentId) {
         quest.setDepartment(departmentService.readDepartment(departmentId));
         questService.createQuest(quest);
@@ -57,16 +63,16 @@ public class QuestController {
     @GetMapping("/list")
     public String getLessonList(Model model) {
         model.addAttribute("quests", questService.readAllQuests());
-        return "/courses/lessons/lessonsList";
+        return "/courses/quest/questList";
     }
 
-    @GetMapping("/editquest/{id}")
+    @GetMapping("/edit/{id}")
     public String getEditQuest(@PathVariable(name = "id") Long id, Model model) {
         model.addAttribute("questToEdit", questService.readQuest(id));
-        return "/courses/lessons/editLesson";
+        return "/courses/quest/editQuest";
     }
 
-    @PostMapping("/editquest/{id}")
+    @PostMapping("/edit/{id}")
     public RedirectView postEditQuest(@PathVariable(name = "id") Long id, @ModelAttribute Quest updatedQuest) {
         questService.updateQuest(id, updatedQuest);
         return new RedirectView("list");
@@ -74,7 +80,7 @@ public class QuestController {
 
     @GetMapping("/calendar")
     public String getCalendar() {
-        return "/courses/lessons/lessonsCalendar";
+        return "/courses/quest/questCalendar";
     }
 
 }
