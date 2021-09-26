@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.example.model.companyadmin.Department;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,10 +9,7 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -36,24 +34,28 @@ public class Instructor {
 
     private String email;
     private int phoneNumber;
+
     @NotNull
     private String city;
+
     @NotNull
-    private String department;
+    @ManyToOne
+    @JoinColumn(name = "departmentId", referencedColumnName = "departmentId")
+    private Department department;
 
-    //    private List<Boolean> drivingLicenseCategoriesOwned;
-    @NotNull
-    private String drivingLicenseNumber;
+//    private List<Boolean> drivingLicenseCategoriesOwned;
+//    @NotNull
+//    private String drivingLicenseNumber;
+//
+//    private List<Boolean> getDrivingLicenseCategoriesTrainer;
+//    @NotNull
+//    private String instructorLicenseNumber;
+//
+//    private boolean isEInstructor;
+//    private boolean isActiveEmployee;
+//    private boolean isIncludedInNotifications;
 
-    //    private List<Boolean> getDrivingLicenseCategoriesTrainer;
-    @NotNull
-    private String instructorLicenseNumber;
-
-    private boolean isEInstructor;
-    private boolean isActiveEmployee;
-    private boolean isIncludedInNotifications;
-
-    public Instructor(Long id, String firstName, String lastName, Date birthDate, String email, int phoneNumber, String city, String department, String drivingLicenseNumber, String instructorLicenseNumber, boolean isEInstructor, boolean isActiveEmployee, boolean isIncludedInNotifications) {
+    public Instructor(Long id, String firstName, String lastName, Date birthDate, String email, int phoneNumber, String city, Department department/*, String drivingLicenseNumber, String instructorLicenseNumber, boolean isEInstructor, boolean isActiveEmployee, boolean isIncludedInNotifications*/) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -62,10 +64,10 @@ public class Instructor {
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.department = department;
-        this.drivingLicenseNumber = drivingLicenseNumber;
-        this.instructorLicenseNumber = instructorLicenseNumber;
-        this.isEInstructor = isEInstructor;
-        this.isActiveEmployee = isActiveEmployee;
-        this.isIncludedInNotifications = isIncludedInNotifications;
+//        this.drivingLicenseNumber = drivingLicenseNumber;
+//        this.instructorLicenseNumber = instructorLicenseNumber;
+//        this.isEInstructor = isEInstructor;
+//        this.isActiveEmployee = isActiveEmployee;
+//        this.isIncludedInNotifications = isIncludedInNotifications;
     }
 }

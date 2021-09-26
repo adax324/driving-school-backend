@@ -182,16 +182,9 @@
 
         </section>
     </div>
-
     <!-- /.content -->
-
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> indev 0.1
-        </div>
-        <strong>Copyright &copy; 2021 <a href="https://adminlte.io">DriverGoes.pl</a>.</strong> All rights reserved.
-    </footer>
+    <%@include file="../../dynamic/footer.jspf" %>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -206,11 +199,9 @@
 <!-- Bootstrap 4 -->
 <script src='<c:url value="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
 <!-- bs-custom-file-input -->
-<script src='<c:url value="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"/>'></script>
+<script src='<c:url value="/resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"/>'></script>
 <!-- AdminLTE App -->
 <script src='<c:url value="/resources/dist/js/adminlte.min.js"/>'></script>
-<!-- AdminLTE for demo purposes -->
-<script src='<c:url value="/resources/dist/js/demo.js"/>'></script>
 <!-- Page specific script -->
 <script>
     $(function () {
