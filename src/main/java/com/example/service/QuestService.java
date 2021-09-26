@@ -6,21 +6,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class QuestService {
-    private QuestRepository questRepository;
+    private final QuestRepository questRepository;
+
     @Autowired
     public QuestService(QuestRepository questRepository) {
         this.questRepository = questRepository;
     }
 
-    public List<Quest> getAllQuests(){
+    public void createQuest(Quest quest) {
+        questRepository.saveAndFlush(quest);
+    }
+
+    public Quest readQuest(Long id) {
+        return questRepository.findById(id).orElseThrow(NoSuchElementException::new);
+    }
+
+    public List<Quest> readAllQuests() {
         return questRepository.findAll();
     }
 
-    // added test comments
-    public void addQuest(Quest quest) {
-        questRepository.saveAndFlush(quest);
+    public Quest updateQuest(Long id, Quest updatedQuest) {
+        Quest currentQuest = questRepository.findById(id).orElseThrow(NoSuchElementException::new);
+
+        return questRepository.saveAndFlush(currentQuest);
+
     }
+
 }

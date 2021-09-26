@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -46,7 +47,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-            <form method="post" action='<c:url value="/lesson/addquest?departmentId=${department.id}"/>'>
+            <form method="post" action='<c:url value="/lesson/addquest?departmentId=${department.departmentId}"/>'>
             <div class="card-body">
             <div class="form-group row">
                      <div class="col-12">
@@ -57,7 +58,7 @@
                 <div class="form-group row">
                   <div class="col-12">
                   <label >Rodzaj zajęć</label>
-                  <select class="form-control" name="questName">
+                  <select class="form-control" name="questType">
                       <option hidden>Wybierz</option>
                     <option value="theory">Zajęcia teoretyczne</option>
                     <option value="practice">Zajęcia praktyczne</option>
@@ -71,7 +72,7 @@
                   <div class="col-12">
                     
                     <label>Termin</label>
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" name="date">
                     
                   </div>
 
@@ -80,7 +81,7 @@
                   <div class="col-12">
                     
                     <label>Godzina</label>
-                    <input type="time" class="form-control">
+                    <input type="time" class="form-control" name="time">
                     
                   </div>
 
@@ -117,8 +118,8 @@
                 <div class="col-sm-12">
                       <div class="form-group">
                         <label>Oddział</label>
-                        <select class="form-control" disabled name="departmentId">
-                            <option value="${department.id}" selected>
+                        <select class="form-control" disabled>
+                            <option selected>
                                 ${department.departmentCode}
                             </option>
                         </select>

@@ -6,26 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class CityService {
-    private CityRepository cityRepository;
+    private final CityRepository cityRepository;
+
     @Autowired
     public CityService(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
-    public City addCity(City city){
-       return cityRepository.saveAndFlush(city);
+
+    public City createCity(City city) {
+        return cityRepository.saveAndFlush(city);
     }
-    public List<City> getAllCities(){
-        List<City> cities=cityRepository.findAll();
-        System.out.println(cities);
-        return cities;
+
+    public List<City> readAllCities() {
+        return cityRepository.findAll();
     }
-    public City getCityById(Long id){
-        if (cityRepository.findById(id).isPresent()){
-            return cityRepository.findById(id).get();
-        }else
-            return null;
+
+    public City readCityById(Long id) {
+        return cityRepository.findById(id).orElseThrow(NoSuchElementException::new);
+
+
     }
 }

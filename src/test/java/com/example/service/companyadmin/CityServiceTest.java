@@ -1,7 +1,6 @@
 package com.example.service.companyadmin;
 
 import com.example.model.companyadmin.City;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,8 +21,8 @@ class CityServiceTest {
         City city=new City();
         city.setCityName("Bydgoszcz");
         //when
-        Long newCityId= cityService.addCity(city).getCityId();
-        City createdCity=cityService.getCityById(newCityId);
+        Long newCityId= cityService.createCity(city).getCityId();
+        City createdCity=cityService.readCityById(newCityId);
         //then
         assertEquals(city.getCityName(),createdCity.getCityName());
 
