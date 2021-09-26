@@ -54,7 +54,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class = " mb-2 col-sm-2 col-md-2">                    
-                    <a href='<c:url value="/employees/addEmployee"/>' class="btn btn-success">+ Dodaj pracownika</a>
+                    <a href='<c:url value="/employees/add"/>' class="btn btn-success">+ Dodaj pracownika</a>
                   </div>
                 </div>
                
@@ -70,27 +70,17 @@
                   </tr>
                   </thead>
                   <tbody>
+
+<c:forEach items="${employees}" var="employee">
                   <tr>
-                    <td>Jan</td>
-                    <td>Nowak</td>
-                    <td>Instruktor</td>                  
-                    <td>WRO-1</td>
+                    <td>${employee.firstName}</td>
+                    <td>${employee.lastName}</td>
+                    <td>stanowisko-todo</td>
+                    <td>${employee.department}</td>
                     <td><a href="#" class="btn btn-primary">Edytuj</a></td>
                   </tr>
-                  <tr>
-                    <td>Anna</td>
-                    <td>Nowak</td>
-                    <td>Wykładowca</td>                  
-                    <td>WRO-1</td>
-                    <td><a href="#" class="btn btn-primary">Edytuj</a></td>
-                  </tr>
-                  <tr>
-                    <td>Paweł</td>
-                    <td>Nowak</td>
-                    <td>Właściciel</td>                  
-                    <td>WRO-1</td>
-                    <td><a href="#" class="btn btn-primary">Edytuj</a></td>
-                  </tr>                       
+</c:forEach>
+
                   </tbody>
                   <tfoot>
                     <tr>
@@ -116,12 +106,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <%@include file="../../dynamic/footer.jspf" %>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
