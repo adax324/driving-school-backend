@@ -95,7 +95,7 @@
                                                     <td><a href="#" role="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#umiejetnosci"><i class="fas
                                                     fa-check"></i></a></td>--%>
 
-                                            <<<<<<< HEAD
+
                                             <td><a href='<c:url value="/student/editStudent/${student.id}"/>'
                                                    class="btn-right btn btn-primary" role="button">Edytuj</a>
                                             </td>
@@ -183,12 +183,10 @@
 <script src='<c:url value="/resources/plugins/jquery/jquery.min.js"/>'></script>
 <!-- Bootstrap 4 -->
 <script src='<c:url value="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
-<!-- jQuery UI -->
-<script src='<c:url value="/resources/plugins/jquery-ui/jquery-ui.min.js"/>'></script>
+<!-- bs-custom-file-input -->
+<script src='<c:url value="/resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"/>'></script>
 <!-- AdminLTE App -->
 <script src='<c:url value="/resources/dist/js/adminlte.min.js"/>'></script>
-<!-- AdminLTE for demo purposes -->
-<script src='<c:url value="/resources/dist/js/demo.js"/>'></script>
 <!-- DataTables  & Plugins -->
 <script src='<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/>'></script>
 <script src='<c:url value="/resources/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"/>'></script>
