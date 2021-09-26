@@ -25,12 +25,22 @@ public class Quest {
     private LocalTime time;
 
 
-    private Long studentId=1L;//temp
-    private Long teacherId=1L;//temp
+    private Long studentId = 1L;//temp
+    private Long teacherId = 1L;//temp
     @ManyToOne
     @JoinColumn(name = "departmentId")
     private Department department;
 
+    public boolean updateFields(Quest updatedQuest) {
+        if (updatedQuest != null && updatedQuest.questType != null && updatedQuest.date != null && updatedQuest.time != null) {
+            this.questType = updatedQuest.questType;
+            this.date = updatedQuest.date;
+            this.time = updatedQuest.time;
+            return true;
+        } else
+            return false;
 
+
+    }
 
 }

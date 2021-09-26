@@ -47,7 +47,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-            <form method="post" action='<c:url value="/lesson/addquest?departmentId=${department.id}"/>'>
+            <form method="post" action='<c:url value="/lesson/addquest?departmentId=${department.departmentId}"/>'>
             <div class="card-body">
             <div class="form-group row">
                      <div class="col-12">

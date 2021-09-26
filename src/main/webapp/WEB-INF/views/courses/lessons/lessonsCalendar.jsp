@@ -150,7 +150,10 @@
       },
       themeSystem: 'bootstrap',
       //Random default events
-      events: [],
+      events: [{
+        title: 'Praktyka Nazwisko',
+        start: '2021-09-26 12:00:00'
+      }],
       editable  : false,
       droppable : false // this allows things to be dropped onto the calendar !!!
       

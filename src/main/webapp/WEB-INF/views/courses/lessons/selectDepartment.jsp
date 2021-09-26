@@ -69,7 +69,7 @@
                         <select class="form-control" id="departmentSelect">
                             <option hidden>Wybierz</option>
                             <c:forEach items="${departments}" var="item">
-                                <option value="${item.id}">${item.departmentCode}</option>
+                                <option value="${item.departmentId}">${item.departmentCode}</option>
                             </c:forEach>
                         </select>
                       </div>
