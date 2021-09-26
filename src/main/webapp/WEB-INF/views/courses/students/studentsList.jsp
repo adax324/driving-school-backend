@@ -94,7 +94,7 @@
     <td><a href="#" role="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#umiejetnosci"><i class="fas
     fa-check"></i></a></td>--%>
 
-    <td><a href='<c:url value="/editStudent/${student.id}"/>'
+    <td><a href='<c:url value="/student/editStudent/${student.id}"/>'
     class="btn-right btn btn-primary" role="button">Edytuj</a>
     </td>
     </tr>

@@ -27,7 +27,7 @@ class StudentServiceTest {
         student.setPhoneNumber(231123412);
         student.setEmail("Pablo");
         //when
-        Long newStudentId= studentService.createStudent(student).getStudentId();
+        Long newStudentId= studentService.createStudent(student).getId();
         Student createdStudent=studentService.readStudentById(newStudentId);
         //then
         assertEquals(student.getFirstName(),createdStudent.getFirstName());

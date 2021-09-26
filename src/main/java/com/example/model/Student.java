@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.example.model.companyadmin.Department;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,10 +9,7 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
 
@@ -47,16 +45,18 @@ public class Student {
     @Pattern(regexp = "(^[0-9]{10})")
     private int phoneNumber;
 
-    public Student(Long studentId, String firstName, String lastName, Date birthDate, String email, int phoneNumber) {
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "departmentId")
+    private Department department;
+
+    public Student(Long id, String firstName, String lastName, Date birthDate, String email, int phoneNumber, Department department) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.email = email;
         this.phoneNumber = phoneNumber;
-    }
-
-    public Long getStudentId() {
-        return id;
+        this.department = department;
     }
 }

@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/student")
 public class StudentController {
@@ -44,7 +46,7 @@ public class StudentController {
 
 
     @PostMapping("/addNewStudent")
-    public RedirectView postAddNewStudent(@ModelAttribute Student newStudent) {
+    public RedirectView postAddNewStudent(@Valid @ModelAttribute Student newStudent) {
         studentRepository.save(newStudent);
         return new RedirectView("students");
     }

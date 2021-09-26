@@ -47,7 +47,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form name="send" method="post" action='<c:url value="addNewStudent"/>'>
+                            <form name="send" method="post" action='<c:url value="/student/addNewStudent"/>'>
 
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -60,7 +60,7 @@
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="exampleSecondName" class="col-form-label">Nazwisko</label>
-                                            <input class="form-control form-control-sm" type="text" name="secondName"
+                                            <input class="form-control form-control-sm" type="text" name="lastName"
                                                    placeholder="Nazwisko...">
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                             <label>Oddział</label>
                                             <select class="form-control" id="departmentSelect">
                                                 <option hidden>Wybierz</option>
-                                                <c:forEach items="${departments}" var="item">
+                                                <c:forEach items="${department}" var="item">
                                                     <option value="${item.departmentId}">${item.departmentCode}</option>
                                                 </c:forEach>
                                             </select>
@@ -223,7 +223,6 @@
     $('#selectCity').change(function () {
         id = $(this).find('option:selected').attr('value');
     });
-
     function abcd() {
         return "selectdepartment?cityId=" + this.id;
     }
