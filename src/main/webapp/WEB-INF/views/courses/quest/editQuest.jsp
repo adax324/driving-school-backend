@@ -47,7 +47,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-            <form method="post" action='<c:url value="/lesson/edit%20quest/${questToEdit.questId}"/>'>
+            <form method="post" action='<c:url value="/quests/edit/${questToEdit.questId}"/>'>
             <div class="card-body">
             <div class="form-group row">
                      <div class="col-12">
@@ -170,7 +170,7 @@
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
-                                    <a style="text-decoration: none" href='<c:url value="/lesson/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
+                                    <a style="text-decoration: none" href='<c:url value="/quests/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
                                 </div>
 
                             </div>

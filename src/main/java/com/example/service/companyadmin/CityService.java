@@ -19,6 +19,7 @@ public class CityService {
 
     public City createCity(City city) {
         return cityRepository.saveAndFlush(city);
+
     }
 
     public List<City> readAllCities() {
