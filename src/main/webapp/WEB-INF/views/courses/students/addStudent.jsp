@@ -35,7 +35,7 @@
         </section>
 
         <!-- Main content -->
-        <form class="content">
+        <section class="content">
             <div class="container-fluid">
                 <div class="row">
                     <!-- left column -->
@@ -157,7 +157,7 @@
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal2">
                 Anuluj
             </button>
-        </form>
+        </section>
         <!-- The Modal -->
         <div class="modal" id="myModal2">
             <div class="modal-dialog">
