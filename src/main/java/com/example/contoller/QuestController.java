@@ -2,6 +2,7 @@ package com.example.contoller;
 
 import com.example.model.Quest;
 import com.example.model.companyadmin.City;
+import com.example.service.StudentService;
 import com.example.service.companyadmin.CityService;
 import com.example.service.QuestService;
 import com.example.service.companyadmin.DepartmentService;
@@ -17,12 +18,15 @@ public class QuestController {
     private QuestService questService;
     private CityService cityService;
     private DepartmentService departmentService;
+    private StudentService studentService;
+
 
     @Autowired
-    public QuestController(QuestService questService, CityService cityService, DepartmentService departmentService) {
+    public QuestController(QuestService questService, CityService cityService, DepartmentService departmentService, StudentService studentService) {
         this.questService = questService;
         this.cityService = cityService;
         this.departmentService = departmentService;
+        this.studentService = studentService;
     }
 
     @GetMapping("/city")
@@ -36,6 +40,7 @@ public class QuestController {
         City city = cityService.readCityById(cityId);
         model.addAttribute("city", city);
         model.addAttribute("departments", departmentService.readAllDepartmentsByCity(city));
+
         return "/courses/quest/selectDepartment";
     }
 
@@ -43,6 +48,7 @@ public class QuestController {
     public String getAddQuest(Model model, @RequestParam Long cityId, @RequestParam Long departmentId) {
         model.addAttribute("city", cityService.readCityById(cityId));
         model.addAttribute("department", departmentService.readDepartment(departmentId));
+        model.addAttribute("students",studentService.getAllStudents());
         return "/courses/quest/addQuest";
     }
 

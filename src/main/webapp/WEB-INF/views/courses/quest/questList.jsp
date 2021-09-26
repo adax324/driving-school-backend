@@ -4,17 +4,17 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pl-PL">
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Szkoła jazdy | Lista Kursantów</title>
-<%@include file="../../dynamic/baseCss.jspf" %>
-<!-- DataTables -->
-<link rel="stylesheet" href='<c:url value="/resources/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"/>'>
-<link rel="stylesheet"
-      href='<c:url value="/resources/plugins/datatables-responsive/css/responsive.bootstrap4.min.css"/>'>
-<link rel="stylesheet"
-      href='<c:url value="/resources/dynamic/plugins/datatables-buttons/css/buttons.bootstrap4.min.css"/>'>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Szkoła jazdy | Lista Kursantów</title>
+    <%@include file="../../dynamic/baseCss.jspf" %>
+    <!-- DataTables -->
+    <link rel="stylesheet" href='<c:url value="/resources/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"/>'>
+    <link rel="stylesheet"
+          href='<c:url value="/resources/plugins/datatables-responsive/css/responsive.bootstrap4.min.css"/>'>
+    <link rel="stylesheet"
+          href='<c:url value="/resources/plugins/datatables-buttons/css/buttons.bootstrap4.min.css"/>'>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -113,7 +113,15 @@
                                     </c:forEach>
                                     </tbody>
                                     <tfoot>
-
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Instruktor</th>
+                                        <th>Typ zajęć</th>
+                                        <th>Data</th>
+                                        <th>Godzina</th>
+                                        <th>Oddział</th>
+                                        <th>Edycja</th>
+                                    </tr>
                                     </tfoot>
                                 </table>
                             </div>

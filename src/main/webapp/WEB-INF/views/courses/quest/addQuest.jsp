@@ -52,7 +52,12 @@
             <div class="form-group row">
                      <div class="col-12">
                      <label>Kursant</label>
-                      <select class="form-control"></select>
+                      <select class="form-control" name="student">
+                          <option hidden>Wybierz</option>
+                          <c:forEach items="${students}" var="student">
+                              <option value="${student.id}">${student.firstName} ${student.lastName}</option>
+                          </c:forEach>
+                      </select>
                     </div>
                 </div>
                 <div class="form-group row">
