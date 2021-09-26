@@ -47,7 +47,7 @@ public class Student {
     @Pattern(regexp = "(^[0-9]{10})")
     private int phoneNumber;
 
-    public Student(Long id, String firstName, String lastName, Date birthDate, String email, int phoneNumber) {
+    public Student(Long studentId, String firstName, String lastName, Date birthDate, String email, int phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,7 +56,7 @@ public class Student {
         this.phoneNumber = phoneNumber;
     }
 
-    public Long getId() {
+    public Long getStudentId() {
         return id;
     }
 }

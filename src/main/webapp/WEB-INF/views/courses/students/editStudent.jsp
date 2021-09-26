@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DriverGoes</title>
+  <title>Szkoła jazdy | Edycja Kursantów</title>
   <%@include file="../../dynamic/baseCss.jspf"%>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -46,7 +46,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-                <form method="post" action='<c:url value="/studentList/${students.id}"/>'>
+                <form method="post" action='<c:url value="/${students.id}"/>'>
             <div class="card-body">
             <div class="form-group row">
                      <div class="col-12">
@@ -116,13 +116,14 @@
                       <!-- select -->
                       <div class="form-group">
                         <label>Miasto</label>
-                        <select class="form-control">
-                          <option>Poznań</option>
-                          <option>Wrocław</option>
-                          <option>Gdańsk</option>
-                          <option>Lublin</option>
+                          <select class="form-control" id="selectCity">
+                              <option hidden>Wybierz</option>
+                              <c:forEach items="${cities}" var="variable" varStatus="loop">
+                                  <option id="c${loop.index}"
+                                          value="${variable.cityId}">${variable.cityName}</option>
+                              </c:forEach>
 
-                        </select>
+                          </select>
                       </div>
                     </div>
                  </div>
@@ -130,12 +131,13 @@
                 <div class="col-sm-12">
                       <div class="form-group">
                         <label>Oddział</label>
-                        <select class="form-control" disabled>
-                          <option>POZ</option>
-                          <option>WRO</option>
-                          <option>GDN</option>
-                          <option>LUB</option>
-                        </select>
+                          <select class="form-control" id="departmentSelect">
+                              <option hidden>Wybierz</option>
+                              <c:forEach items="${departments}" var="item" varStatus="loop">
+                                  <option id="c${loop.index}"
+                                          value="${item.id}">${item.departmentCode}</>
+                              </c:forEach>
+                          </select>
                       </div>
                     </div>
                  </div>
@@ -227,57 +229,68 @@
             </div>
      
         <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton">
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                        Usuń
-                    </button>
-                    <!-- The Modal -->
-                    <div class="modal" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
+          <!-- The Modal -->
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+              Usuń
+          </button>
 
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Czy na pewno usunąć?</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                          <h4 class="modal-title">Czy na pewno usunąć?</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
 
 
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Anuluj</button>
-                                    <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
-                                </div>
+                      <!-- Modal footer -->
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Anuluj</button>
+                          <form method="post" action='<c:url value="/editPerson/${person.id}"/>'>
+                              <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                          </form>
+                      </div>
 
-                            </div>
+                  </div>
 
-                        </div>
-                    </div>
+              </div>
+          </div>
                     
                       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
                         Anuluj
                     </button>
-                    <!-- The Modal -->
-                    <div class="modal" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
 
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h3 class="modal-title">Czy na pewno anulować?</h3>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
+          <!-- The Modal -->
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal2">
+              Anuluj
+          </button>
+          </form>
+          <!-- The Modal -->
+          <div class="modal" id="myModal2">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                          <h4 class="modal-title">Czy na pewno anulować?</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
 
 
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Anuluj</button>
-                                    <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
-                                </div>
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                          <a style="text-decoration: none" href='<c:url value="/student/students"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
+                      </div>
 
-                            </div>
+                  </div>
 
-                        </div>
-                    </div>
+              </div>
+          </div>
       
         </div>
      

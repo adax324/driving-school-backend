@@ -1,7 +1,6 @@
 package com.example.contoller;
 
 import com.example.model.Student;
-import com.example.model.companyadmin.City;
 import com.example.repository.StudentRepository;
 import com.example.service.StudentService;
 import com.example.service.companyadmin.CityService;
@@ -32,13 +31,13 @@ public class StudentController {
 
     @GetMapping("/students")
     public String getStudentList(Model model) {
-        model.addAttribute("students", studentService.getAllStudents());
+        model.addAttribute("students", studentService.readAllStudents());
         return "/courses/students/studentsList";
     }
 
     @GetMapping("/addNewStudent")
     public String getAddNewStudent(Model model) {
-        model.addAttribute("cities", cityService.getAllCities());
+        model.addAttribute("cities", cityService.readAllCities());
         model.addAttribute("department", departmentService.readAllDepartments());
         return "/courses/students/addStudent";
     }
@@ -58,7 +57,7 @@ public class StudentController {
 
     @GetMapping("/editStudent/{id}")
     public String getEditStudent(@PathVariable String id, Model model) {
-        model.addAttribute("students", studentService.getStudent(Long.parseLong(id)));
+        model.addAttribute("students", studentService.readStudent(Long.parseLong(id)));
         return "/courses/students/editStudent";
     }
 
@@ -77,7 +76,7 @@ public class StudentController {
 
     @GetMapping("/studentTest")
     public Student getStudent() {
-        return studentService.getStudentById(1L);
+        return studentService.readStudentById(1L);
     }
 
 

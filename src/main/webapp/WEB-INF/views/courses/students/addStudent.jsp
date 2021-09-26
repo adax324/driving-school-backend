@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DriverGoes</title>
+    <title>Szkoła jazdy | Dodawanie Kursantów</title>
     <%@include file="../../dynamic/baseCss.jspf" %>
 </head>
 
@@ -47,7 +47,8 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form name="send" method="post" action='<c:url value="/addNewStudent"/>'>
+                            <form name="send" method="post" action='<c:url value="addNewStudent"/>'>
+
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -103,8 +104,7 @@
                                         <!-- select -->
                                         <div class="form-group">
                                             <label>Miasto</label>
-                                            <select class="form-control" id="selectCity">
-                                                <option hidden>Wybierz</option>
+                                            <select class="form-control">
                                                 <c:forEach items="${cities}" var="variable" varStatus="loop">
                                                     <option id="c${loop.index}"
                                                             value="${variable.cityId}">${variable.cityName}</option>
@@ -121,7 +121,7 @@
                                             <select class="form-control" id="departmentSelect">
                                                 <option hidden>Wybierz</option>
                                                 <c:forEach items="${departments}" var="item">
-                                                    <option value="${item.id}">${item.departmentCode}</option>
+                                                    <option value="${item.departmentId}">${item.departmentCode}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
@@ -148,82 +148,57 @@
 
                 </div>
 
-                    <form name="send" method="post" action='<c:url value="/student/students"/>'>
-                    <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                        Anuluj
-                    </button>
-                    <!-- The Modal -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                            Anuluj
-                        </button>
-                        <!-- The Modal -->
-                        <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
+            </div>
 
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Czy na pewno anulować?</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
+            <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
 
 
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
-                                        <a style="text-decoration: none" href='<c:url value="/student/students"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
-                                    </div>
+            <!-- The Modal -->
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal2">
+                Anuluj
+            </button>
+        </form>
+        <!-- The Modal -->
+        <div class="modal" id="myModal2">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-                                </div>
-
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                            Anuluj
-                        </button>
-                        <!-- The Modal -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                            Anuluj
-                        </button>
-                        <!-- The Modal -->
-                        <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Czy na pewno anulować?</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Czy na pewno anulować?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 
 
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
-                                        <a style="text-decoration: none" href='<c:url value="/student/students"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
-                                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                        <a style="text-decoration: none" href='<c:url value="/student/students"/>'>
+                            <button type="submit" class="btn btn-danger pull-left">Tak</button>
+                        </a>
+                    </div>
 
-                                </div>
-
-                            </div>
-                        </div>
+                </div>
 
             </div>
-        </form>
+        </div>
 
-        </section>
     </div>
+</div>
 
-    <!-- /.content -->
 
-    <%@include file="../../dynamic/footer.jspf" %>
+</section>
+</div>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+<!-- /.content -->
+
+<%@include file="../../dynamic/footer.jspf" %>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -242,5 +217,25 @@
         bsCustomFileInput.init();
     });
 </script>
+<%--skrypt budujący parametr na podstawie select--%>
+<%--<script>
+    var id;
+    $('#selectCity').change(function () {
+        id = $(this).find('option:selected').attr('value');
+    });
+
+    function abcd() {
+        return "selectdepartment?cityId=" + this.id;
+    }
+</script>--%>
+<%--<script>
+    var id;
+    $('#departmentSelect').change(function() {
+        id=$(this).find('option:selected').attr('value');
+    });
+    /*function abcd(){
+        return "addquest?cityId="+${city.cityId}+"&departmentId="+this.id;
+    }*/
+</script>--%>
 </body>
 </html>

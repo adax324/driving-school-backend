@@ -17,15 +17,15 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public List<Student> getAllStudents() {
+    public List<Student> readAllStudents() {
         return studentRepository.findAll();
     }
 
-    public void addStudent(Student student) {
-        studentRepository.saveAndFlush(student);
+    public Student createStudent(Student student) {
+        return studentRepository.saveAndFlush(student);
     }
 
-    public Student getStudent(Long id) {
+    public Student readStudent(Long id) {
         return studentRepository.findById(id).orElse(null);
     }
 
@@ -34,7 +34,7 @@ public class StudentService {
         //System.out.println("deleting student on id: " + id);
     }
 
-    public Student getStudentById(Long id) {
+    public Student readStudentById(Long id) {
         if (studentRepository.findById(id).isPresent()) {
             return studentRepository.findById(id).get();
         } else
@@ -50,7 +50,6 @@ public class StudentService {
                 student.getEmail(),
                 student.getPhoneNumber()
         );
-
         studentRepository.save(editStudent);
         //System.out.println("edit student on id: " + id);
     }
