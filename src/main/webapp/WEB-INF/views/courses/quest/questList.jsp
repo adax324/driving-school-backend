@@ -104,7 +104,7 @@
                                             <td>
                                                 <a style="text-decoration: none"
                                                    href='<c:url value="/quests/edit/${quest.questId}"/>'>
-                                                    <button class="btn-sm btn-secondary btn-block">
+                                                    <button class="btn btn-sm btn-secondary btn-block">
                                                         Edytuj
                                                     </button>
                                                 </a>

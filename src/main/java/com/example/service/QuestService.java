@@ -11,10 +11,14 @@ import java.util.NoSuchElementException;
 @Service
 public class QuestService {
     private final QuestRepository questRepository;
+    private final StudentService studentService;
+    private final EmployeesService employeesService;
 
     @Autowired
-    public QuestService(QuestRepository questRepository) {
+    public QuestService(QuestRepository questRepository, StudentService studentService, EmployeesService employeesService) {
         this.questRepository = questRepository;
+        this.studentService = studentService;
+        this.employeesService = employeesService;
     }
 
     public void createQuest(Quest quest) {
@@ -31,9 +35,14 @@ public class QuestService {
 
     public Quest updateQuest(Long id, Quest updatedQuest) {
         Quest currentQuest = questRepository.findById(id).orElseThrow(NoSuchElementException::new);
+        currentQuest.setStudent(studentService.readStudent(updatedQuest.getStudent().getId())); //zmiana studenta
+//        currentQuest.setInstructor(employeesService.); //poproszę metodę do pobrania instruktora po ID
         currentQuest.updateFields(updatedQuest);
         return questRepository.saveAndFlush(currentQuest);
 
+    }
+    public void deleteQuest(Long id){
+        questRepository.deleteById(id);
     }
 
 }

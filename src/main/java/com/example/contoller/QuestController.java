@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 
+
 @Controller
 @RequestMapping("/quests")
 public class QuestController {
@@ -75,15 +76,22 @@ public class QuestController {
     @GetMapping("/edit/{id}")
     public String getEditQuest(@PathVariable(name = "id") Long id, Model model) {
         model.addAttribute("questToEdit", questService.readQuest(id));
+
+        model.addAttribute("students",studentService.readAllStudents());
+        model.addAttribute("instructors",employeesService.readAllEmployees());
         return "/courses/quest/editQuest";
     }
 
     @PostMapping("/edit/{id}")
     public RedirectView postEditQuest(@PathVariable(name = "id") Long id, @ModelAttribute Quest updatedQuest) {
         questService.updateQuest(id, updatedQuest);
-        return new RedirectView("list");
+        return new RedirectView("../list");
     }
-
+    @PostMapping("/delete/{id}")
+    public RedirectView postDeleteQuest(@PathVariable(name = "id") Long id){
+        questService.deleteQuest(id);
+        return new RedirectView("../list");
+    }
     @GetMapping("/calendar")
     public String getCalendar() {
         return "/courses/quest/questCalendar";
