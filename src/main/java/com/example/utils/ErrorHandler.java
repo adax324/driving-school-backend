@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +39,7 @@ public class ErrorHandler {
         ModelAndView mav=new ModelAndView();
         mav.addObject("exception",ex);
         mav.addObject("url",req.getRequestURL());
-        mav.setViewName(req.getServletPath());
+        mav.setViewName("/courses/quest/addQuest");
         return mav;
     }
 
