@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>${Imię i Nazwisko kursanta}</h1>
+            <h1>Imię i Nazwisko kursanta</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -46,7 +46,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-                <form method="post" action='<c:url value="/${students.id}"/>'>
+                <form method="post" action='<c:url value="student/students/${students.id}"/>'>
             <div class="card-body">
             <div class="form-group row">
                      <div class="col-12">
@@ -58,7 +58,7 @@
                 <div class="form-group row">
             <div class="col-12">
                    <label for="exampleSecondName" class="col-form-label">Nazwisko</label>
-                <input class="form-control" type="text" name="firstName"
+                <input class="form-control" type="text" name="lastName"
                        value="${students.lastName}">
                     </div>
                 </div>
@@ -222,90 +222,96 @@
           </div>
               </div>    
               </div>
-               
-              <!-- /.card-body -->
+
+                <!-- /.card-body -->
             </div>
-           
-            </div>
-     
-        <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton">
-          <!-- The Modal -->
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-              Usuń
-          </button>
 
-          <!-- The Modal -->
-          <div class="modal" id="myModal">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-
-                      <!-- Modal Header -->
-                      <div class="modal-header">
-                          <h4 class="modal-title">Czy na pewno usunąć?</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-
-
-                      <!-- Modal footer -->
-                      <!-- Modal footer -->
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Anuluj</button>
-                          <form method="post" action='<c:url value="/editPerson/${person.id}"/>'>
-                              <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
-                          </form>
-                      </div>
-
-                  </div>
-
-              </div>
-          </div>
-                    
-                      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
-                        Anuluj
-                    </button>
-
-          <!-- The Modal -->
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal2">
-              Anuluj
-          </button>
-          </form>
-          <!-- The Modal -->
-          <div class="modal" id="myModal2">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-
-                      <!-- Modal Header -->
-                      <div class="modal-header">
-                          <h4 class="modal-title">Czy na pewno anulować?</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-
-
-                      <!-- Modal footer -->
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
-                          <a style="text-decoration: none" href='<c:url value="/student/students"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
-                      </div>
-
-                  </div>
-
-              </div>
-          </div>
-      
         </div>
-     
-      </section>
-    </div>
+          <div class="row mb-2">
+              <div class="col-2">
+                  <input class="btn btn-success btn-block mr-1" type="submit" value="Zapisz" id="searchButton">
+                  </form>
+              </div>
+              <div class="col-2">
+                  <button type="button" class="btn btn-secondary btn-block" data-toggle="modal"
+                          data-target="#myModal">
+                      Wstecz
+                  </button>
+                  <!-- The Modal -->
+                  <div class="modal" id="myModal">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                  <h4 class="modal-title">Czy na pewno anulować?</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+
+
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                                  <a style="text-decoration: none" href='<c:url value="/student/students"/>'><button
+                                          type="submit" class="btn btn-danger pull-left">Tak</button></a>
+                              </div>
+
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+
+
+          </div>
+          <div class="row mb-2">
+              <div class="col-4">
+                  <form method="post" action=<c:url value="/student/deleteStudent/${students.id}" />>
+                      <button class="btn btn-danger btn-block" type="modal" data-target="#deleteModal">Usuń</button>
+                      <div class="modal" id="deleteModal">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+
+                                  <!-- Modal Header -->
+                                  <div class="modal-header">
+                                      <h4 class="modal-title">Czy na pewno chcesz usunąć?</h4>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  </div>
+
+
+                                  <!-- Modal footer -->
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                                      <button
+                                              type="submit" class="btn btn-danger pull-left">Tak</button>
+                                  </div>
+
+                              </div>
+
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+
+
+      </div>
+
+    </section>
+  </div>
 
     <!-- /.content -->
-  <%@include file="../../dynamic/footer.jspf"%>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+    <%@include file="../../dynamic/footer.jspf" %>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
+<!-- ./wrapper -->
+
 <!-- jQuery -->
 <script src='<c:url value="/resources/plugins/jquery/jquery.min.js"/>'></script>
 <!-- Bootstrap 4 -->
@@ -317,9 +323,10 @@
 
 <!-- Page specific script -->
 <script>
-  $(function () {
-    bsCustomFileInput.init();
-  });
+    $(function () {
+        bsCustomFileInput.init();
+    });
 </script>
 </body>
+
 </html>

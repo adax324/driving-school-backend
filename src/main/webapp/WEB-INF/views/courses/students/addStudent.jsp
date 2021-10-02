@@ -47,7 +47,8 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form name="send" method="post" action='<c:url value="/student/addNewStudent"/>'>
+                            <form method="post"
+                                  action='<c:url value="/student/addNewStudent"/>'>
 
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -86,10 +87,11 @@
                                                    placeholder="Numer...">
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                         </div>
                     </div>
+
                     <div class="col-xl-6 col-md-6 mb-6">
                         <div class="card card-primary">
                             <div class="card-header py-3">
@@ -114,6 +116,9 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -127,6 +132,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -146,20 +152,18 @@
                         <!-- /.card-body -->
                     </div>
 
-                </div>
 
-            </div>
+
+
 
             <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
 
-
-            <!-- The Modal -->
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal2">
-                Anuluj
-            </button>
-        </section>
+            </form>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+            Anuluj
+        </button>
         <!-- The Modal -->
-        <div class="modal" id="myModal2">
+        <div class="modal" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -168,6 +172,7 @@
                         <h4 class="modal-title">Czy na pewno anulować?</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
+
 
 
                     <!-- Modal footer -->
@@ -184,10 +189,10 @@
         </div>
 
     </div>
-</div>
 
 
-</section>
+
+    </section>
 </div>
 
 <!-- /.content -->
@@ -217,24 +222,5 @@
         bsCustomFileInput.init();
     });
 </script>
-<%--skrypt budujący parametr na podstawie select--%>
-<%--<script>
-    var id;
-    $('#selectCity').change(function () {
-        id = $(this).find('option:selected').attr('value');
-    });
-    function abcd() {
-        return "selectdepartment?cityId=" + this.id;
-    }
-</script>--%>
-<%--<script>
-    var id;
-    $('#departmentSelect').change(function() {
-        id=$(this).find('option:selected').attr('value');
-    });
-    /*function abcd(){
-        return "addquest?cityId="+${city.cityId}+"&departmentId="+this.id;
-    }*/
-</script>--%>
 </body>
 </html>

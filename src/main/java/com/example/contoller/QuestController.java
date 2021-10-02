@@ -54,6 +54,7 @@ public class QuestController {
     public String getAddQuest(Model model, @RequestParam Long cityId, @RequestParam Long departmentId) {
         model.addAttribute("city", cityService.readCityById(cityId));
         model.addAttribute("department", departmentService.readDepartment(departmentId));
+        model.addAttribute("students",studentService.readAllStudents());
         model.addAttribute("students",studentService.readStudentByDepartmentId(departmentId));
         model.addAttribute("instructor",employeesService.readAllInstructorsByDepartment(departmentId));
         return "/courses/quest/addQuest";

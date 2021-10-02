@@ -1,5 +1,6 @@
 package com.example.contoller;
 
+import com.example.model.Instructor;
 import com.example.model.Student;
 import com.example.repository.StudentRepository;
 import com.example.service.StudentService;
@@ -21,6 +22,7 @@ public class StudentController {
     private final StudentService studentService;
     private final CityService cityService;
     private final DepartmentService departmentService;
+
 
     @Autowired
     public StudentController(StudentRepository studentRepository, StudentService studentService, CityService cityService, DepartmentService departmentService) {
