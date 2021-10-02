@@ -49,7 +49,7 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form method="post"
-                                  action='<c:url value="/quests/add?departmentId=${department.departmentId}"/>'>
+                                  action='<c:url value="/quests/add?cityId=${city.cityId}&departmentId=${department.departmentId}"/>'>
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -139,7 +139,7 @@
                                         <div class="form-group">
                                             <label>Instruktor</label>
                                             <select class="form-control" name="instructor.id">
-                                                <option hidden>Wybierz</option>
+                                                <option hidden value="0">Wybierz</option>
                                                 <c:forEach items="${instructor}" var="instructor">
                                                     <option value="${instructor.id}">${instructor.firstName} ${instructor.lastName}</option>
                                                 </c:forEach>

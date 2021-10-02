@@ -1,6 +1,7 @@
 package com.example.model;
 
 import com.example.model.companyadmin.Department;
+import com.example.utils.InstructorIsChosen;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,7 +35,7 @@ public class Quest {
     @JoinColumn(name = "studentId", referencedColumnName = "id")
     private Student student;
 
-    @NotNull(message = "isNull")
+    @InstructorIsChosen
     @ManyToOne
     @JoinColumn(name = "instructorId", referencedColumnName = "id")
     private Instructor instructor;

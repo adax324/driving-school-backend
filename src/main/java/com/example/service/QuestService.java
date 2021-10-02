@@ -36,7 +36,7 @@ public class QuestService {
     public Quest updateQuest(Long id, Quest updatedQuest) {
         Quest currentQuest = questRepository.findById(id).orElseThrow(NoSuchElementException::new);
         currentQuest.setStudent(studentService.readStudent(updatedQuest.getStudent().getId())); //zmiana studenta
-//        currentQuest.setInstructor(employeesService.); //poproszę metodę do pobrania instruktora po ID
+        currentQuest.setInstructor(employeesService.readInstructorById(updatedQuest.getInstructor().getId())); //poproszę metodę do pobrania instruktora po ID
         currentQuest.updateFields(updatedQuest);
         return questRepository.saveAndFlush(currentQuest);
 
