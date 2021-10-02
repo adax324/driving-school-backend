@@ -7,8 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -20,26 +20,25 @@ public class Quest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long questId;
 
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "isNull")
+    @NotEmpty(message = "isEmpty")
     private String questType;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
-    @NotNull
+    @NotNull(message = "isNull")
     private LocalTime time;
 
-    @NotNull
+    @NotNull(message = "isNull")
     @ManyToOne
     @JoinColumn(name = "studentId", referencedColumnName = "id")
     private Student student;
 
-    @NotNull
+    @NotNull(message = "isNull")
     @ManyToOne
     @JoinColumn(name = "instructorId", referencedColumnName = "id")
     private Instructor instructor;
 
-    @NotNull
     @ManyToOne
     @JoinColumn(name = "departmentId")
     private Department department;

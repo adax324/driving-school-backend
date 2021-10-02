@@ -49,7 +49,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class=" mb-2 col-sm-2 col-md-2">
-                                        <a href='<c:url value="/quest/city"/>' class="btn btn-success">+ Dodaj
+                                        <a href='<c:url value="/quests/city"/>' class="btn btn-success">+ Dodaj
                                             lekcję</a>
                                     </div>
                                 </div>
@@ -103,8 +103,8 @@
                                             </td>
                                             <td>
                                                 <a style="text-decoration: none"
-                                                   href='<c:url value="/quest/edit/${quest.questId}"/>'>
-                                                    <button class="btn-sm btn-secondary btn-block">
+                                                   href='<c:url value="/quests/edit/${quest.questId}"/>'>
+                                                    <button class="btn btn-sm btn-secondary btn-block">
                                                         Edytuj
                                                     </button>
                                                 </a>

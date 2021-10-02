@@ -90,7 +90,7 @@
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
-                                    <a style="text-decoration: none" href='<c:url value="/lesson/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
+                                    <a style="text-decoration: none" href='<c:url value="/quests/list"/>'><button type="submit" class="btn btn-danger pull-left">Tak</button></a>
 
                                 </div>
 
