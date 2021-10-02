@@ -3,12 +3,16 @@ package com.example.model;
 import com.example.model.companyadmin.Department;
 import com.sun.istack.NotNull;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -38,8 +42,17 @@ public class Student {
     @Email(message = "Niepoprawny adres email")
     private String email;
 
-    @Pattern(regexp = "(^[0-9]{10})")
+    @NotNull
+    //@Pattern(regexp = "(^[0-9]{10})")
     private int phoneNumber;
+
+    @NotNull
+    @ColumnDefault("30.0")
+   //@Pattern(regexp = "(^[0-9]{10})")
+    private double remainingHours = 30.0;
+
+
+    private boolean admittedExam;
 
     @NotNull
     @ManyToOne
@@ -47,8 +60,9 @@ public class Student {
     private Department department;
 
     @NotNull
-    @ManyToOne
     @JoinColumn(name = "instructorId", referencedColumnName = "id")
-    private Instructor instructor;
+    @ManyToMany
+    private List<Instructor> instructor;
+
 
 }

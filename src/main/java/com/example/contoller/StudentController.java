@@ -64,7 +64,7 @@ public class StudentController {
     @PostMapping("/addNewStudent")
     public RedirectView postAddStudent(@Valid @ModelAttribute Student student) {
         studentService.createStudent(student);
-        return new RedirectView("../students");
+        return new RedirectView("../students/");
     }
 
 

@@ -57,7 +57,6 @@ public class StudentService {
         studentRepository.saveAndFlush(studentToEdit);
     }
 
-
     public List<Student> readStudentByDepartmentId(Long id) {
         return studentRepository.findAllByDepartment(departmentService.readDepartment(id));
     }

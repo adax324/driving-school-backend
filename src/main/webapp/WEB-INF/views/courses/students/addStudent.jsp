@@ -88,8 +88,11 @@
                                     </div>
 
                                 </div>
-                        </div>
+
+
                     </div>
+                </div>
+
 
                     <div class="col-xl-6 col-md-6 mb-6">
                         <div class="card card-primary">
@@ -153,6 +156,7 @@
 
 
                 </div>
+
 
 
                 <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">

@@ -86,7 +86,7 @@
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="hoursEndCourse" class="col-form-label">Ilość pozostałych godzin:</label>
-                                            <input class="form-control form-control-sm" type="text" name="godziny" placeholder="Ilość pozostałych godzin...">
+                                            <input class="form-control form-control-sm" type="text" name="remainingHours" value="${students.remainingHours}h">">
                                         </div>
                                     </div>
 
@@ -94,8 +94,8 @@
 
                                     <div class="form-group row">
                                         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                            <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                                            <label class="custom-control-label" for="customSwitch3">Czy kursant gotowy do egzaminu?</label>
+                                            <input type="checkbox" class="custom-control-input" id="egzamin" value="${students.admittedExam}">
+                                            <label class="custom-control-label" for="egzamin">Czy kursant gotowy do egzaminu?</label>
                                         </div>
                                     </div>
                                 </div>
@@ -283,7 +283,7 @@
                                             <button
                                                     type="submit" class="btn btn-danger pull-left">Tak</button>
                                         </div>
-
+                        </form>
 
                                     </div>
 
