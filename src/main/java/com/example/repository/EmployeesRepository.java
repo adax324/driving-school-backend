@@ -12,4 +12,5 @@ public interface EmployeesRepository extends JpaRepository<Instructor, Long> {
 
 List<Instructor> findAllByDepartment(Department department);
 
+
 }

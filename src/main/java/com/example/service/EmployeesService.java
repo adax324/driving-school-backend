@@ -28,13 +28,20 @@ public class EmployeesService {
         employeesRepository.saveAndFlush(instructor);
     }
 
-    public List<Instructor> readAllInstructorsByDepartment(Long id){
+    public List<Instructor> readAllInstructorsByDepartment(Long id) {
         return employeesRepository.findAllByDepartment(departmentService.readDepartment(id));
     }
 
 
-    public List<Instructor> readAllInstructorsByDepartment(Department department){
+    public List<Instructor> readAllInstructorsByDepartment(Department department) {
         return employeesRepository.findAllByDepartment(department);
+    }
+
+    public Instructor readInstructorById(Long id) {
+        if (employeesRepository.findById(id).isPresent()) {
+            return employeesRepository.findById(id).get();
+        } else
+            return null;
     }
 
 
