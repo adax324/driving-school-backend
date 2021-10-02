@@ -2,10 +2,7 @@ package com.example.model;
 
 import com.example.model.companyadmin.Department;
 import com.sun.istack.NotNull;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -14,10 +11,9 @@ import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@AllArgsConstructor
 public class Student {
 
 
@@ -50,13 +46,9 @@ public class Student {
     @JoinColumn(name = "departmentId")
     private Department department;
 
-    public Student(Long id, String firstName, String lastName, Date birthDate, String email, int phoneNumber, Department department) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.department = department;
-    }
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "instructorId", referencedColumnName = "id")
+    private Instructor instructor;
+
 }

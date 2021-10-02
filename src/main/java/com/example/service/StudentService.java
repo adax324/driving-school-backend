@@ -26,8 +26,8 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public Student createStudent(Student student) {
-        return studentRepository.saveAndFlush(student);
+    public void createStudent(Student student) {
+        studentRepository.saveAndFlush(student);
     }
 
     public Student readStudent(Long id) {
@@ -36,7 +36,6 @@ public class StudentService {
 
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
-        //System.out.println("deleting student on id: " + id);
     }
 
     public Student readStudentById(Long id) {
@@ -46,17 +45,16 @@ public class StudentService {
             return null;
     }
 
-    public void editPerson(Student student, Long id) {
-        Student editStudent = new Student(
-                id,
-                student.getFirstName(),
-                student.getLastName(),
-                student.getBirthDate(),
-                student.getEmail(),
-                student.getPhoneNumber(),
-                student.getDepartment()
-        );
-        studentRepository.save(editStudent);
+    public void updateStudent(Long id, Student student) {
+        Student studentToEdit = studentRepository.findById(id).orElseThrow(NoSuchElementException::new);
+        studentToEdit.setFirstName(student.getFirstName());
+        studentToEdit.setLastName(student.getLastName());
+        studentToEdit.setBirthDate(student.getBirthDate());
+        studentToEdit.setEmail(student.getEmail());
+        studentToEdit.setPhoneNumber(student.getPhoneNumber());
+        studentToEdit.setDepartment(student.getDepartment());
+        studentToEdit.setInstructor(student.getInstructor());
+        studentRepository.saveAndFlush(studentToEdit);
     }
 
 

@@ -47,8 +47,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form method="post"
-                                  action='<c:url value="/student/addNewStudent"/>'>
+                            <form name="send" method="post" action='<c:url value="/student/addNewStudent"/>'>
 
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -107,7 +106,7 @@
                                         <div class="form-group">
                                             <label>Miasto</label>
                                             <select class="form-control">
-                                                <c:forEach items="${cities}" var="variable" varStatus="loop">
+                                                <c:forEach items="${city}" var="variable" varStatus="loop">
                                                     <option id="c${loop.index}"
                                                             value="${variable.cityId}">${variable.cityName}</option>
                                                 </c:forEach>
@@ -137,11 +136,11 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Instruktor</label>
-                                            <select class="form-control" disabled>
-                                                <option>Janusz Januszowski</option>
-                                                <option>Kolo Kolutek</option>
-                                                <option>Wariacik Szybki</option>
-                                                <option>Nie Wiem Czy To Dobry Pomysł</option>
+                                            <select class="form-control" name="instructor.id">
+                                                <option hidden>Wybierz</option>
+                                                <c:forEach items="${instructors}" var="instructor">
+                                                    <option value="${instructor.id}">${instructor.firstName} ${instructor.lastName}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </div>
@@ -153,57 +152,59 @@
                     </div>
 
 
+                </div>
+
+
+                <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
+
+                </form>
+
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+                    Anuluj
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Czy na pewno anulować?</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
 
 
 
-            <input class="btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                                <a style="text-decoration: none" href='<c:url value="/student/students"/>'>
+                                    <button type="submit" class="btn btn-danger pull-left">Tak</button>
+                                </a>
+                            </div>
 
-            </form>
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-            Anuluj
-        </button>
-        <!-- The Modal -->
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+                        </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Czy na pewno anulować?</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-
-
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
-                        <a style="text-decoration: none" href='<c:url value="/student/students"/>'>
-                            <button type="submit" class="btn btn-danger pull-left">Tak</button>
-                        </a>
-                    </div>
-
                 </div>
 
             </div>
-        </div>
 
+
+
+        </section>
     </div>
 
+    <!-- /.content -->
 
+    <%@include file="../../dynamic/footer.jspf" %>
 
-    </section>
-</div>
-
-<!-- /.content -->
-
-<%@include file="../../dynamic/footer.jspf" %>
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 

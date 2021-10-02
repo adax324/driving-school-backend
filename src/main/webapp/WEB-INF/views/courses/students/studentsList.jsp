@@ -87,6 +87,20 @@
                                             <td>${student.birthDate}</td>
                                             <td>${student.email}</td>
                                             <td>${student.phoneNumber}</td>
+                                            <td><option hidden value="${studentToEdit.instructor.id}">
+                                                    ${studentToEdit.instructor.firstName} ${studentToEdit.instructor.lastName}</option>
+                                                <c:forEach items="${instructors}" var="instructor">
+                                                    <option value="${instructor.id}">
+                                                            ${instructor.firstName} ${instructor.lastName}
+                                                    </option>
+                                                </c:forEach></td>
+                                            <td>${student.phoneNumber}</td>
+                                            <td>${student.phoneNumber}</td>
+                                            <td><option value="${studentToEdit.department.departmentCityLocation.cityId}" selected>
+                                                    ${studentToEdit.department.departmentCityLocation.cityName}
+                                                </option></td>
+
+
                                                 <%--    <td><a href='<c:url value="${title.birthDate}"/>' class="btn btn-info btn-circle">
                                                     <i class="fas fa-info-circle"></i>
                                                     </a></td>
