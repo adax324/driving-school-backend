@@ -31,7 +31,7 @@ public class StudentService {
     }
 
     public Student readStudent(Long id) {
-        return studentRepository.findById(id).orElse(null);
+        return studentRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     public void deleteStudent(Long id) {

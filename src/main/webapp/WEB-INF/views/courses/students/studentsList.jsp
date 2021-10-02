@@ -58,8 +58,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class=" mb-2 col-sm-2 col-md-2">
-                                        <a href='<c:url value="/student/addNewStudent"/>' class="btn btn-success">+
-                                            Dodaj kursanta</a>
+                                        <a href='<c:url value="/student/addNewStudent"/>' class="btn btn-success">+ Dodaj kursanta</a>
                                     </div>
                                 </div>
 
@@ -94,10 +93,14 @@
                                                     <td>${title.start}</td>
                                                     <td><a href="#" role="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#umiejetnosci"><i class="fas
                                                     fa-check"></i></a></td>--%>
+                                            <td>
+                                                <a style="text-decoration: none"
+                                                   href='<c:url value="/student/editStudent/${student.id}"/>'>
+                                                    <button class="btn-sm btn-secondary btn-block">
+                                                        Edytuj
+                                                    </button>
+                                                </a>
 
-
-                                            <td><a href='<c:url value="/student/editStudent/${student.id}"/>'
-                                                   class="btn-right btn btn-primary" role="button">Edytuj</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -130,52 +133,16 @@
             <!-- /.container-fluid -->
         </section>
         <!-- /.content -->
-
-        <td><a href='<c:url value="/editStudent/${student.id}"/>'
-               class="btn-right btn btn-primary" role="button">Edytuj</a>
-        </td>
-        </tr>
-        </c:forEach>
-        </tbody>
-        </tbody>
-        <tfoot>
-        <tr>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Data urodzenia</th>
-            <th>Email</th>
-            <th>Numer telefonu</th>
-            <th>Instruktor</th>
-            <th>Pozostałe godziny</th>
-            <th>Gotowy do egzaminu</th>
-            <th>Oddział</th>
-            <th>Edycja</th>
-        </tr>
-        </tfoot>
-        </table>
     </div>
-    <!-- /.card-body -->
-</div>
-<!-- /.card -->
-</div>
-<!-- /.col -->
-</div>
-<!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</section>
-<!-- /.content -->
->>>>>>> development
-</div>
-<!-- /.content-wrapper -->
-<%@include file="../../dynamic/footer.jspf" %>
+    <!-- /.content-wrapper -->
+    <%@include file="../../dynamic/footer.jspf" %>
 
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
 
-</aside>
-<!-- /.control-sidebar -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -183,10 +150,11 @@
 <script src='<c:url value="/resources/plugins/jquery/jquery.min.js"/>'></script>
 <!-- Bootstrap 4 -->
 <script src='<c:url value="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
-<!-- bs-custom-file-input -->
-<script src='<c:url value="/resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"/>'></script>
+<!-- jQuery UI -->
+<script src='<c:url value="/resources/plugins/jquery-ui/jquery-ui.min.js"/>'></script>
 <!-- AdminLTE App -->
 <script src='<c:url value="/resources/dist/js/adminlte.min.js"/>'></script>
+
 <!-- DataTables  & Plugins -->
 <script src='<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/>'></script>
 <script src='<c:url value="/resources/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"/>'></script>
