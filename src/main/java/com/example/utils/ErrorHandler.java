@@ -38,7 +38,7 @@ public class ErrorHandler {
         ModelAndView mav=new ModelAndView();
         mav.addObject("exception",ex);
         mav.addObject("url",req.getRequestURL());
-        mav.setViewName("error");
+        mav.setViewName(req.getServletPath());
         return mav;
     }
 
