@@ -94,8 +94,8 @@
                                                             ${instructor.firstName} ${instructor.lastName}
                                                     </option>
                                                 </c:forEach></td>
-                                            <td>${student.phoneNumber}</td>
-                                            <td>${student.phoneNumber}</td>
+                                            <td>${student.remainingHours}</td>
+                                            <td>${student.admittedExam}</td>
                                             <td><option value="${studentToEdit.department.departmentCityLocation.cityId}" selected>
                                                     ${studentToEdit.department.departmentCityLocation.cityName}
                                                 </option></td>

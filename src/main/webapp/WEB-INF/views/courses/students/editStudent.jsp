@@ -86,7 +86,7 @@
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="hoursEndCourse" class="col-form-label">Ilość pozostałych godzin:</label>
-                                            <input class="form-control form-control-sm" type="text" name="remainingHours" value="${students.remainingHours}h">">
+                                            <input class="form-control form-control-sm" type="text" name="remainingHours" value="${students.remainingHours}">
                                         </div>
                                     </div>
 
@@ -95,7 +95,7 @@
                                     <div class="form-group row">
                                         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
                                             <input type="checkbox" class="custom-control-input" id="egzamin" value="${students.admittedExam}">
-                                            <label class="custom-control-label" for="egzamin">Czy kursant gotowy do egzaminu?</label>
+                                            <label class="custom-control-label">Czy kursant gotowy do egzaminu?</label>
                                         </div>
                                     </div>
                                 </div>

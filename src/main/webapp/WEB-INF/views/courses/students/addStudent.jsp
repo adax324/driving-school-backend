@@ -47,7 +47,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form name="send" method="post" action='<c:url value="/student/addNewStudent"/>'>
+                            <form name="send" method="post" action='<c:url value="/student/students/addNewStudent"/>'>
 
                                 <div class="card-body">
                                     <div class="form-group row">
