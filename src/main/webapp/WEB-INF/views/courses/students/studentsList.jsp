@@ -101,10 +101,6 @@
                                                     </button>
                                                 </a>
 
-                                            <td><a href='<c:url value="/student/editStudent/${student.id}"/>'
-                                                   class="btn-right btn btn-primary" role="button">Edytuj</a>
-
-                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
