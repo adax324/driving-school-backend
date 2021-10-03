@@ -47,7 +47,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form name="send" method="post" action='<c:url value="/student/students/addNewStudent"/>'>
+                            <form name="send" method="post" action='<c:url value="/student/addNewStudent"/>'>
 
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -67,8 +67,7 @@
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="exampleBirthDate" class="col-form-label">Data urodzenia</label>
-                                            <input class="form-control form-control-sm" type="date" name="birthDate"
-                                                   placeholder="">
+                                            <input class="form-control form-control-sm" type="date" name="date">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -127,7 +126,7 @@
                                             <label>Oddział</label>
                                             <select class="form-control" id="departmentSelect">
                                                 <option hidden>Wybierz</option>
-                                                <c:forEach items="${department}" var="item">
+                                                <c:forEach items="${departments}" var="item">
                                                     <option value="${item.departmentId}">${item.departmentCode}</option>
                                                 </c:forEach>
                                             </select>

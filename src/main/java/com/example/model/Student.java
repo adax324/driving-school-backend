@@ -61,8 +61,8 @@ public class Student {
 
     @NotNull
     @JoinColumn(name = "instructorId", referencedColumnName = "id")
-    @ManyToMany
-    private List<Instructor> instructor;
+    @ManyToOne
+    private Instructor instructor;
 
 
 }

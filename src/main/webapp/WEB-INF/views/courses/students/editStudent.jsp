@@ -65,7 +65,7 @@
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="exampleBirthDate" class="col-form-label">Data urodzenia</label>
-                                            <input class="form-control" type="text" name="birthDate"
+                                            <input class="form-control" type="date" name="birthDate"
                                                    value="${students.birthDate}">
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                                     <div class="form-group row">
                                         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
                                             <input type="checkbox" class="custom-control-input" id="egzamin" value="${students.admittedExam}">
-                                            <label class="custom-control-label">Czy kursant gotowy do egzaminu?</label>
+                                            <label class="custom-control-label" for="egzamin">Czy kursant gotowy do egzaminu?</label>
                                         </div>
                                     </div>
                                 </div>

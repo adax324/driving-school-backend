@@ -1,6 +1,7 @@
 package com.example.contoller;
 
 import com.example.model.Student;
+import com.example.model.companyadmin.City;
 import com.example.repository.StudentRepository;
 import com.example.service.EmployeesService;
 import com.example.service.StudentService;
@@ -55,8 +56,9 @@ public class StudentController {
     @GetMapping("/addNewStudent")
     public String getAddNewStudent(Model model) {
         model.addAttribute("city", cityService.readAllCities());
-        model.addAttribute("department", departmentService.readAllDepartments());
+        model.addAttribute("departments", departmentService.readAllDepartments());
         model.addAttribute("instructors", employeesService.readAllEmployees());
+        //model.addAttribute("instructor",employeesService.readAllInstructorsByDepartment(departmentId));
         return "/courses/students/addStudent";
     }
 
@@ -64,7 +66,7 @@ public class StudentController {
     @PostMapping("/addNewStudent")
     public RedirectView postAddStudent(@Valid @ModelAttribute Student student) {
         studentService.createStudent(student);
-        return new RedirectView("../students/");
+        return new RedirectView("students");
     }
 
 

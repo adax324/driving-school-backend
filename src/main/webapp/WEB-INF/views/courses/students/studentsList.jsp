@@ -87,10 +87,10 @@
                                             <td>${student.birthDate}</td>
                                             <td>${student.email}</td>
                                             <td>${student.phoneNumber}</td>
-                                            <td><option hidden value="${studentToEdit.instructor.id}">
+                                            <td><option hidden value="${studentToEdit.instructors.id}">
                                                     ${studentToEdit.instructor.firstName} ${studentToEdit.instructor.lastName}</option>
                                                 <c:forEach items="${instructors}" var="instructor">
-                                                    <option value="${instructor.id}">
+                                                    <option value="${instructors.id}">
                                                             ${instructor.firstName} ${instructor.lastName}
                                                     </option>
                                                 </c:forEach></td>
