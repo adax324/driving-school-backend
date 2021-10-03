@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
+public class Student implements Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
