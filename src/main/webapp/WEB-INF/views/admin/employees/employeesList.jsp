@@ -80,7 +80,7 @@
                                             <td>${employee.lastName}</td>
                                             <td>stanowisko-todo</td>
                                             <td>${employee.department}</td>
-                                            <td><a href="#" class="btn btn-primary">Edytuj</a></td>
+                                            <td><a href='<c:url value="/employees/edit/${employee.id}"/>' class="btn btn-primary">Edytuj</a></td>
                                         </tr>
                                     </c:forEach>
 

@@ -49,51 +49,122 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form method="post"
-                                  action='<c:url value="/quests/add?departmentId=${department.departmentId}"/>'>
+                                  action='<c:url value="/quests/add?cityId=${cityProperty.cityId}&departmentId=${departmentProperty.departmentId}"/>'>
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <div class="col-12">
-                                            <label>Kursant</label>
-                                            <select class="form-control" name="student.id">
-                                                <option hidden>Wybierz</option>
-                                                <c:forEach items="${students}" var="student">
-                                                    <option value="${student.id}">${student.firstName} ${student.lastName}</option>
-                                                </c:forEach>
-                                            </select>
+                                            <div class="form-group">
+                                                <label>Kursant</label>
+                                                <select class="form-control" name="student.id">
+                                                    <c:choose>
+                                                        <c:when test="${questToFix.student!=null}">
+                                                    <option value="${questToFix.student.id}">
+                                                        ${questToFix.student.firstName} ${questToFix.student.lastName}
+                                                    </option>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <option hidden value="0">Wybierz</option>
+                                                        </c:otherwise>
+                                                    </c:choose>
+
+
+
+
+                                                    <c:forEach items="${studentsProperty}" var="student">
+                                                        <option value="${student.id}">${student.firstName} ${student.lastName}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12">
-                                            <label>Rodzaj zajęć</label>
-                                            <select class="form-control" name="questType">
-                                                <option hidden>Wybierz</option>
-                                                <option value="theory">Zajęcia teoretyczne</option>
-                                                <option value="practice">Zajęcia praktyczne</option>
-                                                <option value="theoryTest">Egzamin wewnętrzny teoretyczny</option>
-                                                <option value="practiceTest">Egzamin wewnętrzny praktyczny</option>
-                                                <option value="homework">Zadanie domowe</option>
-                                            </select>
+                                            <div class="form-group">
+                                                <label>Rodzaj zajęć</label>
+                                                <select class="form-control" name="questType">
+                                                    <c:choose>
+                                                        <c:when test="${questToFix.questType!=null}">
+                                                            <option value="${questToFix.questType}">
+                                                                   ${questToFix.questType}
+                                                            </option>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <option hidden value="">Wybierz</option>
+                                                        </c:otherwise>
+                                                    </c:choose>
+
+
+
+
+                                                    <option value="theory">Zajęcia teoretyczne</option>
+                                                    <option value="practice">Zajęcia praktyczne</option>
+                                                    <option value="theoryTest">Egzamin wewnętrzny teoretyczny</option>
+                                                    <option value="practiceTest">Egzamin wewnętrzny praktyczny</option>
+                                                    <option value="homework">Zadanie domowe</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Termin</label>
+                                                <c:choose>
+                                                    <c:when test="${questToFix.date!=null}">
+                                                        <input type="date" class="form-control" name="date" value="${questToFix.date}">
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <input type="date" class="form-control" name="date">
+                                                    </c:otherwise>
+                                                </c:choose>
 
-                                            <label>Termin</label>
-                                            <input type="date" class="form-control" name="date">
-
+                                            </div>
                                         </div>
 
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12">
-
+                                            <div class="form-group">
                                             <label>Godzina</label>
-                                            <input type="time" class="form-control" name="time">
-
+                                                <c:choose>
+                                                    <c:when test="${questToFix.time!=null}">
+                                                        <input type="time" class="form-control" name="time" value="${questToFix.time}">
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <input type="time" class="form-control" name="time">
+                                                    </c:otherwise>
+                                                </c:choose>
+                                        </div>
                                         </div>
 
                                     </div>
 
+                                </div>
+                                <div class="card-footer">
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <div class="form-group text-red">
+                                                <c:if test="${student.equals('isEmpty')}">
+                                                    Wybierz kursanta
+                                                    <br/>
+                                                </c:if>
+
+                                                <c:if test="${questType.equals('isEmpty')}">
+                                                    Wybierz rodzaj zajęć
+                                                    <br/>
+                                                </c:if>
+
+                                                <c:if test="${date.equals('isNull')}">
+                                                    Wybierz datę
+                                                    <br/>
+                                                </c:if>
+
+                                                <c:if test="${time.equals('isNull')}">
+                                                    Wybierz czas
+                                                </c:if>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                         </div>
@@ -114,8 +185,8 @@
                                             <label>Miasto</label>
                                             <select class="form-control" id="citySelect" disabled>
 
-                                                <option id="c${city.cityId}" value="${city.cityId}"
-                                                        selected>${city.cityName}</option>
+                                                <option id="c${cityProperty.cityId}" value="${cityProperty.cityId}"
+                                                        selected>${cityProperty.cityName}</option>
 
 
                                             </select>
@@ -128,7 +199,7 @@
                                             <label>Oddział</label>
                                             <select class="form-control" disabled>
                                                 <option selected>
-                                                    ${department.departmentCode}
+                                                    ${departmentProperty.departmentCode}
                                                 </option>
                                             </select>
                                         </div>
@@ -139,11 +210,35 @@
                                         <div class="form-group">
                                             <label>Instruktor</label>
                                             <select class="form-control" name="instructor.id">
-                                                <option hidden>Wybierz</option>
-                                                <c:forEach items="${instructor}" var="instructor">
+                                                <c:choose>
+                                                    <c:when test="${questToFix.instructor!=null}">
+                                                        <option value="${questToFix.instructor.id}">
+                                                                ${questToFix.instructor.firstName} ${questToFix.instructor.lastName}
+                                                        </option>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <option hidden value="0">Wybierz</option>
+                                                    </c:otherwise>
+                                                </c:choose>
+
+                                                <c:forEach items="${instructorProperty}" var="instructor">
                                                     <option value="${instructor.id}">${instructor.firstName} ${instructor.lastName}</option>
                                                 </c:forEach>
                                             </select>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row form-group">
+                                    <div class="col-12">
+                                        <div class="form-group text-red">
+                                            <c:if test="${instructor.equals('isEmpty')}">
+                                                Wybierz instrutkora
+                                            </c:if>
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +265,6 @@
                                 <h4 class="modal-title">Czy na pewno anulować?</h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
-
 
 
                             <!-- Modal footer -->

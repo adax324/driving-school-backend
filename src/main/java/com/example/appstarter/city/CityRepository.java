@@ -1,6 +1,5 @@
-package com.example.repository.companyadmin;
+package com.example.appstarter.city;
 
-import com.example.model.companyadmin.City;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

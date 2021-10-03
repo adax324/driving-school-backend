@@ -1,6 +1,6 @@
 package com.example.model;
 
-import com.example.model.companyadmin.Department;
+import com.example.appstarter.department.Department;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,14 +11,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Instructor {
+public class Instructor implements Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

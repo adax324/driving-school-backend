@@ -1,6 +1,6 @@
-package com.example.repository;
+package com.example.appstarter.quest;
 
-import com.example.model.Quest;
+import com.example.appstarter.quest.Quest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

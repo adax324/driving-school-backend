@@ -1,7 +1,7 @@
 package com.example.repository;
 
 import com.example.model.Instructor;
-import com.example.model.companyadmin.Department;
+import com.example.appstarter.department.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +11,6 @@ import java.util.List;
 public interface EmployeesRepository extends JpaRepository<Instructor, Long> {
 
 List<Instructor> findAllByDepartment(Department department);
+
 
 }

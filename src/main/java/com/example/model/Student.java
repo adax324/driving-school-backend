@@ -1,25 +1,22 @@
 package com.example.model;
 
-import com.example.model.companyadmin.Department;
+import com.example.appstarter.department.Department;
 import com.sun.istack.NotNull;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.DynamicInsert;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

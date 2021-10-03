@@ -1,8 +1,7 @@
-package com.example.service.companyadmin;
+package com.example.appstarter.department;
 
-import com.example.model.companyadmin.City;
-import com.example.model.companyadmin.Department;
-import com.example.repository.companyadmin.DepartmentRepository;
+import com.example.appstarter.city.CityService;
+import com.example.appstarter.city.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

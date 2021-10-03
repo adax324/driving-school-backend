@@ -1,6 +1,9 @@
-package com.example.model;
+package com.example.appstarter.quest;
 
-import com.example.model.companyadmin.Department;
+import com.example.model.Instructor;
+import com.example.model.Student;
+import com.example.appstarter.department.Department;
+import com.example.utils.NotEmptyId;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 @Data
@@ -20,21 +25,20 @@ public class Quest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long questId;
 
-    @NotNull(message = "isNull")
     @NotEmpty(message = "isEmpty")
     private String questType;
-
+    @NotNull(message = "isNull")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     @NotNull(message = "isNull")
     private LocalTime time;
 
-    @NotNull(message = "isNull")
+    @NotEmptyId
     @ManyToOne
     @JoinColumn(name = "studentId", referencedColumnName = "id")
     private Student student;
 
-    @NotNull(message = "isNull")
+    @NotEmptyId
     @ManyToOne
     @JoinColumn(name = "instructorId", referencedColumnName = "id")
     private Instructor instructor;
@@ -52,6 +56,34 @@ public class Quest {
         } else
             return false;
 
+
+    }
+
+    public Map<String, String> getAllFields() {
+        Map<String, String> fieldsMap = new HashMap<>();
+        fieldsMap.put("questType", questType);
+        if (date != null) {
+            fieldsMap.put("date", date.toString());
+        } else {
+            fieldsMap.put("date", "");
+        }
+        if (time != null) {
+            fieldsMap.put("time", time.toString());
+        } else {
+            fieldsMap.put("time", "");
+        }
+        if (student.getId() != null) {
+            fieldsMap.put("student", student.getId().toString());
+        } else {
+
+            fieldsMap.put("student", "");
+        }
+        if (instructor.getId() != null) {
+            fieldsMap.put("instructor", instructor.getId().toString());
+        } else {
+            fieldsMap.put("instructor", "");
+        }
+        return fieldsMap;
 
     }
 
