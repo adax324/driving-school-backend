@@ -28,7 +28,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-2">
-                        <h1>Nowy pracownik</h1>
+                        <h1>Edytuj pracownika</h1>
                     </div>
                     <div class="col-sm-10">
                         <ol class="breadcrumb float-sm-right">
@@ -47,7 +47,7 @@
 
                 <div class="row">
                     <!-- left column -->
-                    <div class="col-xl-4 col-md-4 mb-4">
+                    <div class="col-xl-6 col-md-6 mb-6">
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header py-3">
@@ -56,20 +56,20 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form method="post"
-                                  action='<c:url value="/employees/add"/>'>
+                                  action='<c:url value="/employees/edit/${employee.id}"/>'>
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label>Imię</label>
                                             <input class="form-control form-control-sm" type="text" name="firstName"
-                                                   placeholder="Imię...">
+                                                   value=${employee.firstName}>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label>Nazwisko</label>
                                             <input class="form-control form-control-sm" type="text" name="lastName"
-                                                   placeholder="Nazwisko...">
+                                                   value=${employee.lastName}>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -77,14 +77,14 @@
                                             <label>Stanowisko</label>
 
                                             <input class="form-control form-control-sm" type="text" name="position"
-                                                   placeholder="Stanowisko...">
+                                                   value="stanowisko-todo">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label>Data urodzenia</label>
                                             <input class="form-control form-control-sm" type="date" name="birthDate"
-                                                   placeholder="">
+                                                   value=${employee.birthDate}>
                                         </div>
                                     </div>
 
@@ -93,14 +93,14 @@
                                             <label>Email</label>
 
                                             <input class="form-control form-control-sm" type="text" name="email"
-                                                   placeholder="Email...">
+                                                   value=${employee.email}>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label>Telefon:</label>
                                             <input class="form-control form-control-sm" type="text" name="phoneNumber"
-                                                   placeholder="Numer telefonu...">
+                                                   value=${employee.phoneNumber}>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-4 col-md-4 mb-4">
+                    <div class="col-xl-6 col-md-6 mb-6">
                         <div class="card card-primary">
                             <div class="card-header py-3">
                                 <h3 class="card-title">Dane szkoły</h3>
@@ -123,9 +123,11 @@
                                         <div class="form-group">
                                             <label>Miasto</label>
                                             <select class="form-control">
-                                                <c:forEach items="${cities}" var="city">
-                                                    <option>${city.cityName}</option>
-                                                </c:forEach>
+                                                <option>Poznań</option>
+                                                <option>Wrocław</option>
+                                                <option>Gdańsk</option>
+                                                <option>Lublin</option>
+
                                             </select>
                                         </div>
                                     </div>
@@ -143,122 +145,72 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="form-group row">
+                                </div>
                             </div>
                         </div>
+
+                        <!-- /.card-body -->
                     </div>
+
                 </div>
-                     <!-- zamyka dane szkoly -->
 
-                        <div class="col-xl-4 col-md-4 mb-4">
-                            <div class="card card-primary">
-                                <div class="card-header py-3">
-                                    <h3 class="card-title">Uprawnienia instruktora</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            Szkoli w zakresie kategorii:
-                                        </div>
-                                    </div>
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryA">A:</label>
-                                            <input type="checkbox" id="categoryA">
-                                            <label class="custom-checkbox" for="categoryA1">A1:</label>
-                                            <input type="checkbox" id="categoryA1">
-                                            <label class="custom-checkbox" for="categoryA2">A2:</label>
-                                            <input type="checkbox" id="categoryA2">
-                                            <label class="custom-checkbox" for="categoryAM">AM:</label>
-                                            <input type="checkbox" id="categoryAM">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryB">B:</label>
-                                            <input type="checkbox" id="categoryB">
-                                            <label class="custom-checkbox" for="categoryB1">B1:</label>
-                                            <input type="checkbox" id="categoryB1">
-                                            <label class="custom-checkbox" for="categoryBE">BE:</label>
-                                            <input type="checkbox" id="categoryBE">
-                                        </div>
-                                    </div>
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryC">C:</label>
-                                            <input type="checkbox" id="categoryC">
-                                            <label class="custom-checkbox" for="categoryC1">C1:</label>
-                                            <input type="checkbox" id="categoryC1">
-                                            <label class="custom-checkbox" for="categoryCE">CE:</label>
-                                            <input type="checkbox" id="categoryCE">
-                                            <label class="custom-checkbox" for="categoryC1E">C1E:</label>
-                                            <input type="checkbox" id="categoryC1E">
-                                        </div>
-                                    </div>
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryD">D:</label>
-                                            <input type="checkbox" id="categoryD">
-                                            <label class="custom-checkbox" for="categoryD1">D1:</label>
-                                            <input type="checkbox" id="categoryD1">
-                                            <label class="custom-checkbox" for="categoryDE">DE:</label>
-                                            <input type="checkbox" id="categoryDE">
-                                            <label class="custom-checkbox" for="categoryD1E">D1E:</label>
-                                            <input type="checkbox" id="categoryD1E">
-                                        </div>
-                                    </div>
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryT">T:</label>
-                                            <input type="checkbox" id="categoryT">
-
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-12">
-                                            <label>Numer licencji:</label>
-                                            <input class="form-control form-control-sm" type="text" name="licenseNumber"
-                                                   placeholder="Numer licencji...">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!--/.card card-primary -->
-                        </div>
-
-
-
-
-
-
-                <input class="mb-2 btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
+                <input class="mb-2 btn btn-primary pull-left" type="submit" value="Zapisz" id="searchButton">
                 </form>
-                <button type="button" class=" mb-2 btn btn-danger" data-toggle="modal" data-target="#myModal">Anuluj
-                </button>
 
+<%--                <form method="post" action='<c:url value="/employees/delete/${employee.id}"/>'>--%>
+<%--                <input class="mb-2 btn btn-warning" type="submit" value="Usuń" id="searchButton2">--%>
+<%--                </form>--%>
+                <button type="button" class="mb-2 btn btn-danger" data-toggle="modal" data-target="#deleteModal">Usuń</button>
+                <button type="button" class="mb-2 btn btn-warning" data-toggle="modal" data-target="#cancelModal">Anuluj</button>
 
-                <!-- The Modal -->
-                <div class="modal" id="myModal">
+                <!-- Cancel Modal -->
+                <div class="modal" id="cancelModal">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
-                            <!-- Modal Header -->
+                            <!-- Cancel Modal Header -->
                             <div class="modal-header">
                                 <h4 class="modal-title">Czy na pewno anulować?</h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
 
 
-                            <!-- Modal footer -->
+                            <!-- Cancel Modal footer -->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
                                 <a style="text-decoration: none" href='<c:url value="/employees/employeesList"/>'>
                                     <button type="submit" class="btn btn-danger pull-left">Tak</button>
                                 </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Delete Modal -->
+                <div class="modal" id="deleteModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Delete Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Czy na pewno chcesz usunąć?</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Delete Modal footer -->
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
+                                <form method="post" action='<c:url value="/employees/delete/${employee.id}"/>'>
+                                    <input class="btn btn-danger" type="submit" value="Tak" id="searchButton2">
+                                </form>
+                                <%--                                <a style="text-decoration: none" href='<c:url value="/employees/employeesList"/>'>--%>
+<%--                                    <button type="submit" class="btn btn-danger pull-left">Tak</button>--%>
+<%--                                </a>--%>
                             </div>
 
                         </div>

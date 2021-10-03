@@ -863,7 +863,9 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-       
+       <form method="post"
+             action='<c:url value="/employees/add"/>'>
+
             <div class="card-body">
             <div class="form-group row">
                      <div class="col-12">
@@ -897,6 +899,7 @@
                     </div>
                 </div>
               </div>
+       </form>
             
               </div>
                 </div>
@@ -924,6 +927,7 @@
                       </div>
                     </div>
                  </div>
+
                  <div class="form-group row">
                 <div class="col-sm-12">
                       <div class="form-group">
