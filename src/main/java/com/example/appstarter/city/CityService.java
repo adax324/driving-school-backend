@@ -1,7 +1,5 @@
-package com.example.service.companyadmin;
+package com.example.appstarter.city;
 
-import com.example.model.companyadmin.City;
-import com.example.repository.companyadmin.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

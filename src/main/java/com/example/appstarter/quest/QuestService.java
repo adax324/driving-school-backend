@@ -1,7 +1,9 @@
-package com.example.service;
+package com.example.appstarter.quest;
 
-import com.example.model.Quest;
-import com.example.repository.QuestRepository;
+import com.example.appstarter.quest.Quest;
+import com.example.appstarter.quest.QuestRepository;
+import com.example.service.EmployeesService;
+import com.example.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,7 @@ public class QuestService {
     }
 
     public Quest updateQuest(Long id, Quest updatedQuest) {
+
         Quest currentQuest = questRepository.findById(id).orElseThrow(NoSuchElementException::new);
         currentQuest.setStudent(studentService.readStudent(updatedQuest.getStudent().getId())); //zmiana studenta
         currentQuest.setInstructor(employeesService.readInstructorById(updatedQuest.getInstructor().getId())); //poproszę metodę do pobrania instruktora po ID

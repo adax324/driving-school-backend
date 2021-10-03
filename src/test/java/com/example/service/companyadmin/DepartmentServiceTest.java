@@ -1,7 +1,7 @@
 //package com.example.service.companyadmin;
 //
-//import com.example.model.companyadmin.City;
-//import com.example.model.companyadmin.Department;
+//import com.example.appstarter.city.City;
+//import com.example.appstarter.department.Department;
 //import org.junit.jupiter.api.Test;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.test.context.SpringBootTest;

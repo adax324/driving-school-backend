@@ -1,9 +1,9 @@
 package com.example.service;
 
 import com.example.model.Instructor;
-import com.example.model.companyadmin.Department;
+import com.example.appstarter.department.Department;
 import com.example.repository.EmployeesRepository;
-import com.example.service.companyadmin.DepartmentService;
+import com.example.appstarter.department.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

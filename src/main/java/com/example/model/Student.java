@@ -1,6 +1,6 @@
 package com.example.model;
 
-import com.example.model.companyadmin.Department;
+import com.example.appstarter.department.Department;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class Student {
+public class Student implements Person {
 
 
     @Id

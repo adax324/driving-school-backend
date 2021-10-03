@@ -1,26 +1,22 @@
-package com.example.contoller;
+package com.example.appstarter.quest;
 
-import com.example.model.Quest;
-import com.example.model.companyadmin.City;
+import com.example.appstarter.city.City;
 import com.example.service.EmployeesService;
 import com.example.service.StudentService;
-import com.example.service.companyadmin.CityService;
-import com.example.service.QuestService;
-import com.example.service.companyadmin.DepartmentService;
+import com.example.appstarter.city.CityService;
+import com.example.appstarter.department.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.*;
 
 
 @Controller
@@ -59,18 +55,52 @@ public class QuestController {
 
     @GetMapping("/add")
     public String getAddQuest(Model model,
-                              @RequestParam(required = false) Map<String, String> param) {
+                              @RequestParam Map<String, String> param) {
         Long departmentId = Long.valueOf(param.get("departmentId"));
         Long cityId = Long.valueOf(param.get("cityId"));
 
-        model.addAttribute("city", cityService.readCityById(cityId));
-        model.addAttribute("department", departmentService.readDepartment(departmentId));
-        model.addAttribute("students", studentService.readStudentByDepartmentId(departmentId));
-        model.addAttribute("instructor", employeesService.readAllInstructorsByDepartment(departmentId));
+        model.addAttribute("cityProperty", cityService.readCityById(cityId));
+        model.addAttribute("departmentProperty", departmentService.readDepartment(departmentId));
+        model.addAttribute("studentsProperty", studentService.readStudentByDepartmentId(departmentId));
+        model.addAttribute("instructorProperty", employeesService.readAllInstructorsByDepartment(departmentId));
 
+
+        return "/courses/quest/addQuest";
+    }
+
+    @GetMapping("/add/error")
+    public String getAddErrorQuest(Model model, @RequestParam Map<String, String> param) {
+        Long departmentId = Long.valueOf(param.get("departmentId"));
+        Long cityId = Long.valueOf(param.get("cityId"));
+
+        model.addAttribute("cityProperty", cityService.readCityById(cityId));
+        model.addAttribute("departmentProperty", departmentService.readDepartment(departmentId));
+        model.addAttribute("studentsProperty", studentService.readStudentByDepartmentId(departmentId));
+        model.addAttribute("instructorProperty", employeesService.readAllInstructorsByDepartment(departmentId));
+
+        Quest questToFix = new Quest();
+        if (!param.get("instructor").equals("isEmpty")) {
+            questToFix.setInstructor(employeesService.readInstructorById(Long.valueOf(param.get("instructor"))));
+        }
+        if (!param.get("questType").equals("isEmpty")) {
+            questToFix.setQuestType(param.get("questType"));
+        }
+        if (!param.get("date").equals("isNull")) {
+            questToFix.setDate(LocalDate.parse(param.get("date")));
+        }
+        if (!param.get("time").equals("isNull")) {
+            questToFix.setTime(LocalTime.parse(param.get("time")));
+        }
+        if (!param.get("student").equals("isEmpty")) {
+            questToFix.setStudent(studentService.readStudent(Long.valueOf(param.get("student"))));
+        }
+        model.addAttribute("questToFix", questToFix);
+
+        //setting errors
         param.remove("cityId");
         param.remove("departmentId");
         model.addAllAttributes(param);
+        //
 
 
         return "/courses/quest/addQuest";
@@ -80,9 +110,16 @@ public class QuestController {
     public RedirectView postAddQuest(@Valid @ModelAttribute Quest quest, BindingResult bindingResult,
                                      @RequestParam Long cityId, @RequestParam Long departmentId) {
         if (bindingResult.hasErrors()) {
-            RedirectView redirectView = new RedirectView("add?cityId=" + cityId + "&departmentId=" + departmentId);
+            RedirectView redirectView = new RedirectView("add/error?cityId=" + cityId + "&departmentId=" + departmentId);
             Properties properties = new Properties();
+            //
+            Map<String, String> fields = quest.getAllFields();
+            Set<Map.Entry<String, String>> fieldsEntry = fields.entrySet();
+            for (Map.Entry<String, String> fieldEntry : fieldsEntry) {
+                properties.setProperty(fieldEntry.getKey(), fieldEntry.getValue());
+            }
 
+            //
             List<FieldError> fieldError = bindingResult.getFieldErrors();
 
             for (FieldError error : fieldError) {

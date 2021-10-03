@@ -1,6 +1,7 @@
-package com.example.model.companyadmin;
+package com.example.appstarter.department;
 
-import com.example.model.Quest;
+import com.example.appstarter.city.City;
+import com.example.appstarter.quest.Quest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

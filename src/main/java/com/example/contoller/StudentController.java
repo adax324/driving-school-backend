@@ -1,11 +1,10 @@
 package com.example.contoller;
 
-import com.example.model.Instructor;
 import com.example.model.Student;
 import com.example.repository.StudentRepository;
 import com.example.service.StudentService;
-import com.example.service.companyadmin.CityService;
-import com.example.service.companyadmin.DepartmentService;
+import com.example.appstarter.city.CityService;
+import com.example.appstarter.department.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
