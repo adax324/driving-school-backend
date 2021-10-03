@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class EmployeesService {
@@ -42,6 +43,25 @@ public class EmployeesService {
             return employeesRepository.findById(id).get();
         } else
             return null;
+    }
+
+    public Instructor updateEmployee(Long id, Instructor instructor) {
+        Instructor employeeToEdit = employeesRepository.findById(id).orElseThrow(NoSuchElementException::new);
+
+        employeeToEdit.setFirstName(instructor.getFirstName());
+        employeeToEdit.setLastName(instructor.getLastName());
+        employeeToEdit.setBirthDate(instructor.getBirthDate());
+        employeeToEdit.setEmail(instructor.getEmail());
+        employeeToEdit.setPhoneNumber(instructor.getPhoneNumber());
+        employeeToEdit.setCity(instructor.getCity());
+        employeeToEdit.setDepartment(instructor.getDepartment());
+
+        return employeesRepository.saveAndFlush(employeeToEdit);
+
+    }
+
+    public void deleteEmployee (Long id){
+        employeesRepository.deleteById(id);
     }
 
 
