@@ -2,7 +2,7 @@ package com.example.appstarter.quest;
 
 import com.example.appstarter.city.City;
 import com.example.service.EmployeesService;
-import com.example.service.StudentService;
+import com.example.appstarter.student.StudentService;
 import com.example.appstarter.city.CityService;
 import com.example.appstarter.department.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;

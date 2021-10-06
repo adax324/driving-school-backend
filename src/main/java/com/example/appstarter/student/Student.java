@@ -1,6 +1,7 @@
-package com.example.model;
+package com.example.appstarter.student;
 
 import com.example.appstarter.department.Department;
+import com.example.model.Instructor;
 import com.sun.istack.NotNull;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -10,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -32,17 +34,13 @@ public class Student {
     @Size(min = 1, max = 20, message
             = "Nazwisko musi zawierać od 1 do 20 liter")
     private String lastName;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date birthDate;
-
+    private LocalDate birthDate;
     @Email(message = "Niepoprawny adres email")
     private String email;
-
     @NotNull
     //@Pattern(regexp = "(^[0-9]{10})")
     private int phoneNumber;
-
     @NotNull
     @ColumnDefault("30.0")
    //@Pattern(regexp = "(^[0-9]{10})")

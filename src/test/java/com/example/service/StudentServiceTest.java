@@ -1,12 +1,11 @@
 
 package com.example.service;
 
-import com.example.model.Student;
+import com.example.appstarter.student.Student;
+import com.example.appstarter.student.StudentService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class StudentServiceTest {

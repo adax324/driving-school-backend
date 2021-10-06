@@ -1,9 +1,7 @@
-package com.example.contoller;
+package com.example.appstarter.student;
 
-import com.example.model.Student;
-import com.example.repository.StudentRepository;
+import com.example.appstarter.city.City;
 import com.example.service.EmployeesService;
-import com.example.service.StudentService;
 import com.example.appstarter.city.CityService;
 import com.example.appstarter.department.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/student")
@@ -34,6 +33,36 @@ public class StudentController {
         this.employeesService = employeesService;
     }
 
+
+    @GetMapping("/city")
+    public String getSelectCity(Model model) {
+        model.addAttribute("cities", cityService.readAllCities());
+        return "/courses/students/selectCity";
+    }
+
+    @GetMapping("/department")
+    public String getSelectDepartment(Model model, @RequestParam Long cityId) {
+        City city = cityService.readCityById(cityId);
+        model.addAttribute("city", city);
+        model.addAttribute("departments", departmentService.readAllDepartmentsByCity(city));
+
+        return "/courses/students/selectDepartment";
+    }
+
+    @GetMapping("/addStudent")
+    public String getAddQuest(Model model,
+                              @RequestParam Map<String, String> param) {
+        Long departmentId = Long.valueOf(param.get("departmentId"));
+        Long cityId = Long.valueOf(param.get("cityId"));
+
+        model.addAttribute("cityProperty", cityService.readCityById(cityId));
+        model.addAttribute("departmentProperty", departmentService.readDepartment(departmentId));
+        model.addAttribute("studentsProperty", studentService.readStudentByDepartmentId(departmentId));
+        model.addAttribute("instructorProperty", employeesService.readAllInstructorsByDepartment(departmentId));
+
+
+        return "/courses/students/addStudent";
+    }
 
     @GetMapping("/students")
     public String getStudentList(Model model) {

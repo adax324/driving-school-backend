@@ -1,8 +1,6 @@
-package com.example.service;
+package com.example.appstarter.student;
 
-import com.example.model.Student;
 import com.example.appstarter.department.Department;
-import com.example.repository.StudentRepository;
 import com.example.appstarter.department.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

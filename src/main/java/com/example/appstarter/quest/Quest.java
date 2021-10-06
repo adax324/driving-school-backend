@@ -1,7 +1,7 @@
 package com.example.appstarter.quest;
 
 import com.example.model.Instructor;
-import com.example.model.Student;
+import com.example.appstarter.student.Student;
 import com.example.appstarter.department.Department;
 import com.example.utils.NotEmptyId;
 import lombok.*;

@@ -47,7 +47,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form name="send" method="post" action='<c:url value="/student/addNewStudent"/>'>
+                            <form name="send" method="post" action='<c:url value="/student/addStudent?cityId=${cityProperty.cityId}&departmentId=${departmentProperty.departmentId}"/>'>
 
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -107,11 +107,11 @@
                                         <!-- select -->
                                         <div class="form-group">
                                             <label>Miasto</label>
-                                            <select class="form-control">
-                                                <c:forEach items="${city}" var="variable" varStatus="loop">
-                                                    <option id="c${loop.index}"
-                                                            value="${variable.cityId}">${variable.cityName}</option>
-                                                </c:forEach>
+                                            <select class="form-control" id="citySelect" disabled>
+
+                                                <option id="c${cityProperty.cityId}" value="${cityProperty.cityId}"
+                                                        selected>${cityProperty.cityName}</option>
+
 
                                             </select>
                                         </div>
@@ -124,11 +124,10 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Oddział</label>
-                                            <select class="form-control" id="departmentSelect">
-                                                <option hidden>Wybierz</option>
-                                                <c:forEach items="${departments}" var="item">
-                                                    <option value="${item.departmentId}">${item.departmentCode}</option>
-                                                </c:forEach>
+                                            <select class="form-control" disabled>
+                                                <option selected>
+                                                    ${departmentProperty.departmentCode}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>

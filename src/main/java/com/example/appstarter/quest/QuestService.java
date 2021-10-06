@@ -1,9 +1,7 @@
 package com.example.appstarter.quest;
 
-import com.example.appstarter.quest.Quest;
-import com.example.appstarter.quest.QuestRepository;
 import com.example.service.EmployeesService;
-import com.example.service.StudentService;
+import com.example.appstarter.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
