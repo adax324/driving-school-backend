@@ -107,7 +107,160 @@
 
                         </div>
                     </div>
+                    <!-- zamyka dane instruktora -->
 
+                    <!-- otwiera uprawnienia instruktora  -->
+                    <div class="col-xl-4 col-md-4 mb-4">
+                        <div class="card card-primary">
+                            <div class="card-header py-3">
+                                <h3 class="card-title">Uprawnienia instruktora</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <strong>Szkoli w zakresie kategorii:</strong>
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="categoryA">A:</label>
+                                        <input type="checkbox" id="categoryA">
+                                        <label class="custom-checkbox" for="categoryA1">A1:</label>
+                                        <input type="checkbox" id="categoryA1">
+                                        <label class="custom-checkbox" for="categoryA2">A2:</label>
+                                        <input type="checkbox" id="categoryA2">
+                                        <label class="custom-checkbox" for="categoryAM">AM:</label>
+                                        <input type="checkbox" id="categoryAM">
+                                    </div>
+                                </div>
+
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="categoryB">B:</label>
+                                        <input type="checkbox" id="categoryB">
+                                        <label class="custom-checkbox" for="categoryB1">B1:</label>
+                                        <input type="checkbox" id="categoryB1">
+                                        <label class="custom-checkbox" for="categoryBE">BE:</label>
+                                        <input type="checkbox" id="categoryBE">
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="categoryC">C:</label>
+                                        <input type="checkbox" id="categoryC">
+                                        <label class="custom-checkbox" for="categoryC1">C1:</label>
+                                        <input type="checkbox" id="categoryC1">
+                                        <label class="custom-checkbox" for="categoryCE">CE:</label>
+                                        <input type="checkbox" id="categoryCE">
+                                        <label class="custom-checkbox" for="categoryC1E">C1E:</label>
+                                        <input type="checkbox" id="categoryC1E">
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="categoryD">D:</label>
+                                        <input type="checkbox" id="categoryD">
+                                        <label class="custom-checkbox" for="categoryD1">D1:</label>
+                                        <input type="checkbox" id="categoryD1">
+                                        <label class="custom-checkbox" for="categoryDE">DE:</label>
+                                        <input type="checkbox" id="categoryDE">
+                                        <label class="custom-checkbox" for="categoryD1E">D1E:</label>
+                                        <input type="checkbox" id="categoryD1E">
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="categoryT">T:</label>
+                                        <input type="checkbox" id="categoryT">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <label>Numer licencji:</label>
+                                        <input class="form-control form-control-sm" type="text" name="licenseNumber"
+                                               placeholder="Numer licencji...">
+                                    </div>
+                                </div>
+
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <strong>Aktualne prawo jazdy / uprawnienia:</strong>
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="drivingCategoryA">A:</label>
+                                        <input type="checkbox" id="drivingCategoryA">
+                                        <label class="custom-checkbox" for="drivingCategoryA1">A1:</label>
+                                        <input type="checkbox" id="drivingCategoryA1">
+                                        <label class="custom-checkbox" for="drivingCategoryA2">A2:</label>
+                                        <input type="checkbox" id="drivingCategoryA2">
+                                        <label class="custom-checkbox" for="drivingCategoryAM">AM:</label>
+                                        <input type="checkbox" id="drivingCategoryAM">
+                                    </div>
+                                </div>
+
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="drivingCategoryB">B:</label>
+                                        <input type="checkbox" id="drivingCategoryB">
+                                        <label class="custom-checkbox" for="drivingCategoryB1">B1:</label>
+                                        <input type="checkbox" id="drivingCategoryB1">
+                                        <label class="custom-checkbox" for="drivingCategoryBE">BE:</label>
+                                        <input type="checkbox" id="drivingCategoryBE">
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="drivingCategoryC">C:</label>
+                                        <input type="checkbox" id="drivingCategoryC">
+                                        <label class="custom-checkbox" for="drivingCategoryC1">C1:</label>
+                                        <input type="checkbox" id="drivingCategoryC1">
+                                        <label class="custom-checkbox" for="drivingCategoryCE">CE:</label>
+                                        <input type="checkbox" id="drivingCategoryCE">
+                                        <label class="custom-checkbox" for="drivingCategoryC1E">C1E:</label>
+                                        <input type="checkbox" id="drivingCategoryC1E">
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="drivingCategoryD">D:</label>
+                                        <input type="checkbox" id="drivingCategoryD">
+                                        <label class="custom-checkbox" for="drivingCategoryD1">D1:</label>
+                                        <input type="checkbox" id="drivingCategoryD1">
+                                        <label class="custom-checkbox" for="drivingCategoryDE">DE:</label>
+                                        <input type="checkbox" id="drivingCategoryDE">
+                                        <label class="custom-checkbox" for="drivingCategoryD1E">D1E:</label>
+                                        <input type="checkbox" id="drivingCategoryD1E">
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="col-sm-12">
+                                        <label class="custom-checkbox" for="drivingCategoryT">T:</label>
+                                        <input type="checkbox" id="drivingCategoryT">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <label>Numer prawa jazdy:</label>
+                                        <input class="form-control form-control-sm" type="text" name="drivingLicenseNumber"
+                                               placeholder="Numer prawa jazdy...">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!--/.card card-primary -->
+                    </div>
+                    <!-- zamyka uprawnienia instruktora  -->
+
+                    <!-- otwiera dane szkoly-->
                     <div class="col-xl-4 col-md-4 mb-4">
                         <div class="card card-primary">
                             <div class="card-header py-3">
@@ -147,98 +300,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- zamyka dane szkoly -->
+
                 </div>
-                     <!-- zamyka dane szkoly -->
-
-                        <div class="col-xl-4 col-md-4 mb-4">
-                            <div class="card card-primary">
-                                <div class="card-header py-3">
-                                    <h3 class="card-title">Uprawnienia instruktora</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            Szkoli w zakresie kategorii:
-                                        </div>
-                                    </div>
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryA">A:</label>
-                                            <input type="checkbox" id="categoryA">
-                                            <label class="custom-checkbox" for="categoryA1">A1:</label>
-                                            <input type="checkbox" id="categoryA1">
-                                            <label class="custom-checkbox" for="categoryA2">A2:</label>
-                                            <input type="checkbox" id="categoryA2">
-                                            <label class="custom-checkbox" for="categoryAM">AM:</label>
-                                            <input type="checkbox" id="categoryAM">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryB">B:</label>
-                                            <input type="checkbox" id="categoryB">
-                                            <label class="custom-checkbox" for="categoryB1">B1:</label>
-                                            <input type="checkbox" id="categoryB1">
-                                            <label class="custom-checkbox" for="categoryBE">BE:</label>
-                                            <input type="checkbox" id="categoryBE">
-                                        </div>
-                                    </div>
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryC">C:</label>
-                                            <input type="checkbox" id="categoryC">
-                                            <label class="custom-checkbox" for="categoryC1">C1:</label>
-                                            <input type="checkbox" id="categoryC1">
-                                            <label class="custom-checkbox" for="categoryCE">CE:</label>
-                                            <input type="checkbox" id="categoryCE">
-                                            <label class="custom-checkbox" for="categoryC1E">C1E:</label>
-                                            <input type="checkbox" id="categoryC1E">
-                                        </div>
-                                    </div>
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryD">D:</label>
-                                            <input type="checkbox" id="categoryD">
-                                            <label class="custom-checkbox" for="categoryD1">D1:</label>
-                                            <input type="checkbox" id="categoryD1">
-                                            <label class="custom-checkbox" for="categoryDE">DE:</label>
-                                            <input type="checkbox" id="categoryDE">
-                                            <label class="custom-checkbox" for="categoryD1E">D1E:</label>
-                                            <input type="checkbox" id="categoryD1E">
-                                        </div>
-                                    </div>
-                                    <div class="form-group-row">
-                                        <div class="col-sm-12">
-                                            <label class="custom-checkbox" for="categoryT">T:</label>
-                                            <input type="checkbox" id="categoryT">
-
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-12">
-                                            <label>Numer licencji:</label>
-                                            <input class="form-control form-control-sm" type="text" name="licenseNumber"
-                                                   placeholder="Numer licencji...">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!--/.card card-primary -->
-                        </div>
-
-
-
-
-
-
-                <input class="mb-2 btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
-                </form>
-                <button type="button" class=" mb-2 btn btn-danger" data-toggle="modal" data-target="#myModal">Anuluj
-                </button>
+                <!-- /. row -->
+                <div class="row">
+                    <div class="col-xl-2 col-md-2 mb-2">
+                        <input class="mb-2 btn btn-success pull-left" type="submit" value="Dodaj" id="searchButton">
+                        </form>
+                        <button type="button" class=" mb-2 btn btn-danger" data-toggle="modal" data-target="#myModal">
+                            Anuluj
+                        </button>
+                    </div>
+                </div>
 
 
                 <!-- The Modal -->
