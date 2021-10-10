@@ -63,5 +63,12 @@ public class StudentService {
         return studentRepository.findAllByDepartment(department);
     }
 
+//    public Student getStudentByIsAdmitted(){
+//        return studentRepository.findByIsAdmittedTrue()
+//                .map(studentRepository::mapToStudent)
+//                .orElseThrow(()-> new NullPointerException("There is not person in db"));
+//    }
+
+
 
 }

@@ -24,7 +24,7 @@ class StudentServiceTest {
         student.setFirstName("Pablo");
         student.setLastName("Pablitto");
         //student.setBirthDate(1933-11-01);
-        student.setPhoneNumber(231123412);
+        student.setPhoneNumber("231123412");
         student.setEmail("Pablo");
         //when
         //  Long newStudentId= studentService.createStudent(student).getId();

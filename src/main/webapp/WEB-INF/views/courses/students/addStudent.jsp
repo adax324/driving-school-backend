@@ -124,7 +124,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Oddział</label>
-                                            <select class="form-control" disabled>
+                                            <select class="form-control">
                                                 <option selected>
                                                     ${departmentProperty.departmentCode}
                                                 </option>
@@ -139,7 +139,18 @@
                                             <label>Instruktor</label>
                                             <select class="form-control" name="instructor.id">
                                                 <option hidden>Wybierz</option>
-                                                <c:forEach items="${instructors}" var="instructor">
+                                                <c:choose>
+                                                    <c:when test="${studentToFix.instructor!=null}">
+                                                        <option value="${studentToFix.instructor.id}">
+                                                                ${studentToFix.instructor.firstName} ${questToFix.instructor.lastName}
+                                                        </option>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <option hidden value="0">Wybierz</option>
+                                                    </c:otherwise>
+                                                </c:choose>
+
+                                                <c:forEach items="${instructorProperty}" var="instructor">
                                                     <option value="${instructor.id}">${instructor.firstName} ${instructor.lastName}</option>
                                                 </c:forEach>
                                             </select>

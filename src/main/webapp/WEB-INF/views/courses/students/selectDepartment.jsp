@@ -90,6 +90,8 @@
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Anuluj
                     </button>
+          <div class="col-2">
+
                     <!-- The Modal -->
                     <div class="modal" id="myModal">
                         <div class="modal-dialog">
@@ -102,6 +104,7 @@
                                 </div>
 
 
+
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Nie</button>
@@ -112,10 +115,11 @@
 
                         </div>
                     </div>
-      
+          </div>
+
         </div>
-     
-      </section>
+
+    </section>
     </div>
 
     <!-- /.content -->
