@@ -84,8 +84,22 @@
                                                 <select class="form-control" name="questType">
                                                     <c:choose>
                                                         <c:when test="${questToFix.questType!=null}">
-                                                            <option value="${questToFix.questType}">
-                                                                   ${questToFix.questType}
+                                                            <option value="${questToFix.questType}" hidden>
+                                                                <c:if test="${quest.questType.equals('theory')}">
+                                                                    Zajęcia Teoretyczne
+                                                                </c:if>
+                                                                <c:if test="${quest.questType.equals('practice')}">
+                                                                    Zajęcia Praktyczne
+                                                                </c:if>
+                                                                <c:if test="${quest.questType.equals('theoryTest')}">
+                                                                    Teoria Test
+                                                                </c:if>
+                                                                <c:if test="${quest.questType.equals('practiceTest')}">
+                                                                    Praktyka Test
+                                                                </c:if>
+                                                                <c:if test="${quest.questType.equals('homework')}">
+                                                                    Zadanie Domowe
+                                                                </c:if>
                                                             </option>
                                                         </c:when>
                                                         <c:otherwise>
@@ -212,7 +226,7 @@
                                             <select class="form-control" name="instructor.id">
                                                 <c:choose>
                                                     <c:when test="${questToFix.instructor!=null}">
-                                                        <option value="${questToFix.instructor.id}">
+                                                        <option value="${questToFix.instructor.id}" hidden>
                                                                 ${questToFix.instructor.firstName} ${questToFix.instructor.lastName}
                                                         </option>
                                                     </c:when>
